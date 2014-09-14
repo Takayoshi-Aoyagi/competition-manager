@@ -7,7 +7,6 @@ import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.tkdksc.core.Category;
@@ -25,9 +24,14 @@ public class ResultSheetWriter extends AbstractExcelSheetWriter {
 
 	@Override
 	protected void writeBody() {
+		writeClassfiedTable();
+	}
+
+	@Override
+	protected void writeClassfiedTable() {
 		// ヘッダ
-		writeHeaderRow();
-		rowNum++;
+		writeTableHeaderRow();
+		nextLine();
 		//
 		for (String categoryName : categoryMap.keySet()) {
 			Category category = categoryMap.get(categoryName);
@@ -35,23 +39,22 @@ public class ResultSheetWriter extends AbstractExcelSheetWriter {
 					&& !"スペシャル".equals(categoryName)) {
 				continue;
 			}
-			for (String division : category.getMap().keySet()) {
-				if ("×".equals(division)) {
+			for (String classification : category.getMap().keySet()) {
+				if ("×".equals(classification)) {
 					continue;
 				}
-				writeResultRow(rowNum, sheet, categoryName, division);
-				rowNum++;
+				writeTableBodyRow(categoryName, classification);
+				nextLine();
 			}
-			writeResultRow(rowNum, sheet, "団体トゥル", "");
+			writeTableBodyRow("団体トゥル", "");
 		}
 	}
 
-	private void writeResultRow(int rowNum, XSSFSheet sheet,
-			String categoryName, String division) {
+	private void writeTableBodyRow(String categoryName, String classification) {
 		XSSFRow row = sheet.createRow(rowNum);
 		List<Cell> cells = new ArrayList<Cell>();
 		cells.add(writeStringCell(categoryName, row, 0));
-		cells.add(writeStringCell(division, row, 1));
+		cells.add(writeStringCell(classification, row, 1));
 		cells.add(writeStringCell("", row, 2));
 		cells.add(writeStringCell("", row, 3));
 		cells.add(writeStringCell("", row, 4));
@@ -61,17 +64,9 @@ public class ResultSheetWriter extends AbstractExcelSheetWriter {
 		}
 	}
 
-	private void writeHeaderRow() {
-		XSSFRow row = sheet.createRow(rowNum);
-		List<Cell> headerCells = new ArrayList<Cell>();
-		headerCells.add(writeStringCell("種目", row, 0));
-		headerCells.add(writeStringCell("クラス", row, 1));
-		headerCells.add(writeStringCell("優勝", row, 2));
-		headerCells.add(writeStringCell("準優勝", row, 3));
-		headerCells.add(writeStringCell("第三位", row, 4));
-		headerCells.add(writeStringCell("第三位", row, 5));
-		for (Cell cell : headerCells) {
-			cell.setCellStyle(titleStyle);
-		}
+	@Override
+	protected String[] getHeaderTitles() {
+		String[] headers = { "種目", "クラス", "優勝", "準優勝", "第三位", "第三位" };
+		return headers;
 	}
 }

@@ -57,4 +57,22 @@ public abstract class AbstractExcelSheetWriter {
 		titleCell.setCellType(Cell.CELL_TYPE_STRING);
 		titleCell.setCellValue(title);
 	}
+
+	protected void writeTableHeaderRow() {
+		int index = 0;
+		XSSFRow row = sheet.createRow(rowNum);
+		for (String header : getHeaderTitles()) {
+			XSSFCell cell = writeStringCell(header, row, index);
+			cell.setCellStyle(titleStyle);
+			index++;
+		}
+	}
+	
+	protected void nextLine() {
+		rowNum++;
+	}
+	
+	protected abstract String[] getHeaderTitles();
+	
+	protected abstract void writeClassfiedTable();
 }
