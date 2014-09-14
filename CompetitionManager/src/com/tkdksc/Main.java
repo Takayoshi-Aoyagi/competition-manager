@@ -22,25 +22,28 @@ public class Main {
 		for (Player player : playerList) {
 			System.out.println(player);
 		}
-		Category massogi = PlayerUtils.toMap("Massogi", playerList);
-		Category tul = PlayerUtils.toMap("Tul", playerList);
-		Category special = PlayerUtils.toMap("Special", playerList);
-		Category teamTul = PlayerUtils.toMap("TeamTul", playerList);
-		Category dojo = PlayerUtils.toMap("Dojo", playerList);
+		Category massogi = PlayerUtils.toMap(AggregationGroup.MASSOGI,
+				playerList);
+		Category tul = PlayerUtils.toMap(AggregationGroup.TUL, playerList);
+		Category special = PlayerUtils.toMap(AggregationGroup.SPECIAL,
+				playerList);
+		Category teamTul = PlayerUtils.toMap(AggregationGroup.TEAM_TUL,
+				playerList);
+		Category dojo = PlayerUtils.toMap(AggregationGroup.DOJO, playerList);
 
 		Map<String, Category> categoryMap = new TreeMap<String, Category>();
-		categoryMap.put("マッソギ", massogi);
-		categoryMap.put("トゥル", tul);
-		categoryMap.put("スペシャル", special);
-		categoryMap.put("団体トゥル", teamTul);
-		categoryMap.put("道場", dojo);
+		categoryMap.put(massogi.getName(), massogi);
+		categoryMap.put(tul.getName(), tul);
+		categoryMap.put(special.getName(), special);
+		categoryMap.put(teamTul.getName(), teamTul);
+		categoryMap.put(dojo.getName(), dojo);
 		//
 		for (String key : categoryMap.keySet()) {
 			System.out.println("============");
 			Category category = categoryMap.get(key);
 			System.out.println(category);
 		}
-		
+
 		new ExcelWriter().write2excel(categoryMap);
 	}
 }

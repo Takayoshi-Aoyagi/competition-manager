@@ -5,24 +5,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.tkdksc.AggregationGroup;
+
 public class Category {
 
-	private String name;
+	private AggregationGroup group;
 	private Map<String, List<Player>> map;
-	
-	public Category(String name) {
-		this.name = name;
+
+	public Category(AggregationGroup massogi) {
+		this.group = massogi;
 		map = new TreeMap<String, List<Player>>();
 	}
-	
+
 	public String getName() {
-		return name;
+		return group.getKana();
 	}
-	
+
 	public Map<String, List<Player>> getMap() {
 		return map;
 	}
-	
+
 	public void addPlayer(String key, Player player) {
 		List<Player> list = map.get(key);
 		if (list == null) {
@@ -31,11 +33,11 @@ public class Category {
 		}
 		list.add(player);
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(name).append("\n");
+		sb.append(group).append("\n");
 		for (String key : map.keySet()) {
 			sb.append("\t").append(key).append("\n");
 			List<Player> list = map.get(key);
