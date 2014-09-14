@@ -2,9 +2,7 @@ package com.tkdksc.excel.writer;
 
 import java.util.Map;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.tkdksc.core.Category;
@@ -48,16 +46,6 @@ public class ResultSheetWriter extends AbstractExcelSheetWriter {
 			}
 			String[] rowData = { "団体トゥル", "", "", "", "", "" };
 			writeTableBodyRow(rowData);
-		}
-	}
-
-	private void writeTableBodyRow(Object[] rowData) {
-		XSSFRow row = sheet.createRow(rowNum);
-		int index = 0;
-		for (Object data : rowData) {
-			Cell cell = writeCell(data, row, index);
-			cell.setCellStyle(normalStyle);
-			index++;
 		}
 	}
 

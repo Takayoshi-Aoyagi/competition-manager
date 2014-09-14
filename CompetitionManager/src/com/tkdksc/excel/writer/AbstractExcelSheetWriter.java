@@ -80,4 +80,14 @@ public abstract class AbstractExcelSheetWriter {
 	protected abstract String[] getHeaderTitles();
 
 	protected abstract void writeClassfiedTable();
+
+	protected void writeTableBodyRow(Object[] rowData) {
+		XSSFRow row = sheet.createRow(rowNum);
+		int index = 0;
+		for (Object data : rowData) {
+			Cell cell = writeCell(data, row, index);
+			cell.setCellStyle(normalStyle);
+			index++;
+		}
+	}
 }
