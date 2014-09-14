@@ -25,19 +25,24 @@ public abstract class AbstractExcelSheetWriter {
 		sheet = wb.createSheet(title);
 	}
 
-	protected XSSFCell writeStringCell(String str, XSSFRow row, int index) {
+	protected XSSFCell writeCell(Object obj, XSSFRow row, int index) {
 		XSSFCell cell = row.createCell(index);
-		cell.setCellType(Cell.CELL_TYPE_STRING);
-		cell.setCellValue(str);
+		if (obj instanceof String) {
+			cell.setCellType(Cell.CELL_TYPE_STRING);
+			cell.setCellValue((String) obj);
+		} else if (obj instanceof Integer){
+			cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+			cell.setCellValue((Integer) obj);			
+		}
 		return cell;
 	}
 
-	protected XSSFCell writeNumericCell(int num, XSSFRow row, int index) {
-		XSSFCell cell = row.createCell(index);
-		cell.setCellType(Cell.CELL_TYPE_NUMERIC);
-		cell.setCellValue(num);
-		return cell;
-	}
+//	protected XSSFCell writeNumericCell(int num, XSSFRow row, int index) {
+//		XSSFCell cell = row.createCell(index);
+//		cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+//		cell.setCellValue(num);
+//		return cell;
+//	}
 
 	protected void write() {
 		writeTitle();
@@ -62,17 +67,17 @@ public abstract class AbstractExcelSheetWriter {
 		int index = 0;
 		XSSFRow row = sheet.createRow(rowNum);
 		for (String header : getHeaderTitles()) {
-			XSSFCell cell = writeStringCell(header, row, index);
+			XSSFCell cell = writeCell(header, row, index);
 			cell.setCellStyle(titleStyle);
 			index++;
 		}
 	}
-	
+
 	protected void nextLine() {
 		rowNum++;
 	}
-	
+
 	protected abstract String[] getHeaderTitles();
-	
+
 	protected abstract void writeClassfiedTable();
 }

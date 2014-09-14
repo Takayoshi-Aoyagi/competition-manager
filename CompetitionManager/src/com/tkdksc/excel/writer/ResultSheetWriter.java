@@ -1,7 +1,5 @@
 package com.tkdksc.excel.writer;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -43,24 +41,23 @@ public class ResultSheetWriter extends AbstractExcelSheetWriter {
 				if ("×".equals(classification)) {
 					continue;
 				}
-				writeTableBodyRow(categoryName, classification);
+				String[] rowData = { categoryName, classification, "", "", "",
+						"" };
+				writeTableBodyRow(rowData);
 				nextLine();
 			}
-			writeTableBodyRow("団体トゥル", "");
+			String[] rowData = { "団体トゥル", "", "", "", "", "" };
+			writeTableBodyRow(rowData);
 		}
 	}
 
-	private void writeTableBodyRow(String categoryName, String classification) {
+	private void writeTableBodyRow(Object[] rowData) {
 		XSSFRow row = sheet.createRow(rowNum);
-		List<Cell> cells = new ArrayList<Cell>();
-		cells.add(writeStringCell(categoryName, row, 0));
-		cells.add(writeStringCell(classification, row, 1));
-		cells.add(writeStringCell("", row, 2));
-		cells.add(writeStringCell("", row, 3));
-		cells.add(writeStringCell("", row, 4));
-		cells.add(writeStringCell("", row, 5));
-		for (Cell cell : cells) {
+		int index = 0;
+		for (Object data : rowData) {
+			Cell cell = writeCell(data, row, index);
 			cell.setCellStyle(normalStyle);
+			index++;
 		}
 	}
 

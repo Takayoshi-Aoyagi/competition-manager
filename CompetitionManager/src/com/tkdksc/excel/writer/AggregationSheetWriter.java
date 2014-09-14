@@ -1,6 +1,5 @@
 package com.tkdksc.excel.writer;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,7 +37,10 @@ public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 			int numPlayer = 0;
 			for (Player player : players) {
 				numPlayer++;
-				writeTableBodyRow(classification, player, numPlayer);
+				Object[] rowData = { numPlayer, classification,
+						player.getName(), player.getKana(), player.getGrade(),
+						player.getDojo() };
+				writeTableBodyRow(rowData);
 				nextLine();
 			}
 			nextLine();
@@ -48,21 +50,18 @@ public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 	@Override
 	protected void writeClassfiedTable() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	private void writeTableBodyRow(String division, Player player, int numPlayer) {
+	private void writeTableBodyRow(Object[] rowData) {
 		XSSFRow row = sheet.createRow(rowNum);
-		List<Cell> cells = new ArrayList<Cell>();
-		cells.add(writeNumericCell(numPlayer, row, 0));
-		cells.add(writeStringCell(division, row, 1));
-		cells.add(writeStringCell(player.getName(), row, 2));
-		cells.add(writeStringCell(player.getKana(), row, 3));
-		cells.add(writeStringCell(player.getGrade(), row, 4));
-		cells.add(writeStringCell(player.getDojo(), row, 5));
-		for (Cell cell : cells) {
+		int index = 0;
+		for (Object data : rowData) {
+			Cell cell = writeCell(data, row, index);
 			cell.setCellStyle(normalStyle);
+			index++;
 		}
+
 	}
 
 	@Override
