@@ -24,25 +24,9 @@ public class ResultSheetWriter extends AbstractExcelSheetWriter {
 	}
 
 	@Override
-	protected void writeTitle() {
-		writeTitleRow(title, rowNum, sheet);
-		rowNum += 2;
-	}
-
-	@Override
 	protected void writeBody() {
 		// ヘッダ
-		XSSFRow headerRow = sheet.createRow(rowNum);
-		List<Cell> headerCells = new ArrayList<Cell>();
-		headerCells.add(writeStringCell("種目", headerRow, 0));
-		headerCells.add(writeStringCell("クラス", headerRow, 1));
-		headerCells.add(writeStringCell("優勝", headerRow, 2));
-		headerCells.add(writeStringCell("準優勝", headerRow, 3));
-		headerCells.add(writeStringCell("第三位", headerRow, 4));
-		headerCells.add(writeStringCell("第三位", headerRow, 5));
-		for (Cell cell : headerCells) {
-			cell.setCellStyle(titleStyle);
-		}
+		writeHeaderRow();
 		rowNum++;
 		//
 		for (String categoryName : categoryMap.keySet()) {
@@ -74,6 +58,20 @@ public class ResultSheetWriter extends AbstractExcelSheetWriter {
 		cells.add(writeStringCell("", row, 5));
 		for (Cell cell : cells) {
 			cell.setCellStyle(normalStyle);
+		}
+	}
+
+	private void writeHeaderRow() {
+		XSSFRow row = sheet.createRow(rowNum);
+		List<Cell> headerCells = new ArrayList<Cell>();
+		headerCells.add(writeStringCell("種目", row, 0));
+		headerCells.add(writeStringCell("クラス", row, 1));
+		headerCells.add(writeStringCell("優勝", row, 2));
+		headerCells.add(writeStringCell("準優勝", row, 3));
+		headerCells.add(writeStringCell("第三位", row, 4));
+		headerCells.add(writeStringCell("第三位", row, 5));
+		for (Cell cell : headerCells) {
+			cell.setCellStyle(titleStyle);
 		}
 	}
 }

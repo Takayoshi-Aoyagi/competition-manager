@@ -7,7 +7,6 @@ import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.tkdksc.core.Category;
@@ -15,21 +14,13 @@ import com.tkdksc.core.Player;
 
 public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 
-	private String key;
 	private Category category;
 
 	public AggregationSheetWriter(XSSFWorkbook wb, String key,
 			Category category, XSSFCellStyle normalStyle,
 			XSSFCellStyle titleStyle) {
 		super(wb, key, normalStyle, titleStyle);
-		this.key = key;
 		this.category = category;
-	}
-
-	@Override
-	protected void writeTitle() {
-		writeTitleRow(key, rowNum, sheet);
-		rowNum += 2;
 	}
 
 	@Override
@@ -40,22 +31,21 @@ public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 				continue;
 			}
 			// header
-			writeRow(wb, sheet, rowNum);
+			writeHeaderRow();
 			rowNum++;
 			// body
 			List<Player> players = map.get(division);
 			int numPlayer = 0;
 			for (Player player : players) {
 				numPlayer++;
-				writeByRow(rowNum, sheet, division, player, numPlayer);
+				writeByRow(division, player, numPlayer);
 				rowNum++;
 			}
 			rowNum++;
 		}
 	}
 
-	private void writeByRow(int rowNum, XSSFSheet sheet, String division,
-			Player player, int numPlayer) {
+	private void writeByRow(String division, Player player, int numPlayer) {
 		XSSFRow row = sheet.createRow(rowNum);
 		List<Cell> cells = new ArrayList<Cell>();
 		cells.add(writeNumericCell(numPlayer, row, 0));
@@ -69,7 +59,7 @@ public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 		}
 	}
 
-	private void writeRow(XSSFWorkbook wb, XSSFSheet sheet, int rowNum) {
+	private void writeHeaderRow() {
 		XSSFRow row = sheet.createRow(rowNum);
 		List<Cell> cells = new ArrayList<Cell>();
 		cells.add(writeStringCell("No.", row, 0));
@@ -82,5 +72,4 @@ public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 			cell.setCellStyle(titleStyle);
 		}
 	}
-
 }

@@ -16,20 +16,13 @@ public abstract class AbstractExcelSheetWriter {
 	protected XSSFSheet sheet;
 	protected int rowNum = 0;
 
-	protected AbstractExcelSheetWriter(XSSFWorkbook wb,
-			String title, XSSFCellStyle normalStyle, XSSFCellStyle titleStyle) {
+	protected AbstractExcelSheetWriter(XSSFWorkbook wb, String title,
+			XSSFCellStyle normalStyle, XSSFCellStyle titleStyle) {
 		this.wb = wb;
 		this.title = title;
 		this.normalStyle = normalStyle;
 		this.titleStyle = titleStyle;
 		sheet = wb.createSheet(title);
-	}
-
-	protected void writeTitleRow(String title, int rowNum, XSSFSheet sheet) {
-		XSSFRow titleRow = sheet.createRow(rowNum);
-		XSSFCell titleCell = titleRow.createCell(0);
-		titleCell.setCellType(Cell.CELL_TYPE_STRING);
-		titleCell.setCellValue(title);
 	}
 
 	protected XSSFCell writeStringCell(String str, XSSFRow row, int index) {
@@ -51,6 +44,17 @@ public abstract class AbstractExcelSheetWriter {
 		writeBody();
 	}
 
-	protected abstract void writeTitle();
+	protected void writeTitle() {
+		writeTitleRow(title, rowNum, sheet);
+		rowNum += 2;
+	}
+
 	protected abstract void writeBody();
+
+	private void writeTitleRow(String title, int rowNum, XSSFSheet sheet) {
+		XSSFRow titleRow = sheet.createRow(rowNum);
+		XSSFCell titleCell = titleRow.createCell(0);
+		titleCell.setCellType(Cell.CELL_TYPE_STRING);
+		titleCell.setCellValue(title);
+	}
 }
