@@ -8,8 +8,8 @@ import java.util.TreeMap;
 
 import com.tkdksc.core.Category;
 import com.tkdksc.core.Player;
-import com.tkdksc.excel.ExcelReader;
-import com.tkdksc.excel.ExcelWriter;
+import com.tkdksc.excel.reader.ExcelReader;
+import com.tkdksc.excel.writer.ExcelWriter;
 import com.tkdksc.utils.PlayerUtils;
 
 public class Main {
@@ -38,12 +38,16 @@ public class Main {
 		categoryMap.put(teamTul.getName(), teamTul);
 		categoryMap.put(dojo.getName(), dojo);
 		//
+		dbg(categoryMap);
+
+		new ExcelWriter().write2excel(categoryMap);
+	}
+
+	private static void dbg(Map<String, Category> categoryMap) {
 		for (String key : categoryMap.keySet()) {
 			System.out.println("============");
 			Category category = categoryMap.get(key);
 			System.out.println(category);
 		}
-
-		new ExcelWriter().write2excel(categoryMap);
 	}
 }
