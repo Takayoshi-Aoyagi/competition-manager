@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.tkdksc.AggregationGroup;
 import com.tkdksc.core.Category;
 import com.tkdksc.core.Player;
 
@@ -17,13 +18,13 @@ public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 			Category category, XSSFCellStyle normalStyle,
 			XSSFCellStyle titleStyle) {
 		super(wb, key, normalStyle, titleStyle);
-		map = category.getMap();
+		this.map = category.getMap();
 	}
 
 	@Override
 	protected void writeBody() {
 		for (String classification : map.keySet()) {
-			if ("×".equals(classification)) {
+			if (AggregationGroup.ABSENCE.getKana().equals(classification)) {
 				continue;
 			}
 			writeClassfiedTable(classification);
