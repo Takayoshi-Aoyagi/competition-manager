@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.tkdksc.core.AggregationGroup;
 import com.tkdksc.core.Category;
 import com.tkdksc.core.Player;
 import com.tkdksc.excel.reader.entry.DojoEntryExcelReader;

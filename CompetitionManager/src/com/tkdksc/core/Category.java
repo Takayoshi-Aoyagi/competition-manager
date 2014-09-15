@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import com.tkdksc.AggregationGroup;
-
 public class Category {
 
 	private AggregationGroup group;

@@ -5,7 +5,7 @@ import java.util.Map;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.tkdksc.AggregationGroup;
+import com.tkdksc.core.AggregationGroup;
 import com.tkdksc.core.Category;
 
 public class ResultSheetWriter extends AbstractExcelSheetWriter {

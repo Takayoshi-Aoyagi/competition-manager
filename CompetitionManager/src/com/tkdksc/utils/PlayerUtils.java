@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import com.tkdksc.AggregationGroup;
+import com.tkdksc.core.AggregationGroup;
 import com.tkdksc.core.Category;
 import com.tkdksc.core.Player;
 

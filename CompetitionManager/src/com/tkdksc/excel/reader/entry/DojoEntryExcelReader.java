@@ -16,10 +16,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.tkdksc.core.Player;
 import com.tkdksc.utils.StringUtils;
 
-public class DojoEntryExcelReader {
+public class DojoEntryExcelReader extends AbstractExcelReader {
 
 	private List<Player> players = new ArrayList<Player>();
-	
+
 	public List<Player> readFiles() throws FileNotFoundException, IOException {
 		File[] files = getFiles();
 		for (File file : files) {
@@ -79,15 +79,6 @@ public class DojoEntryExcelReader {
 		Player player = new Player(name, grade, dojo, tul, massogi, special,
 				teamTul, kana, entryFee);
 		return player;
-	}
-
-	private String getCellString(Row row, int i) {
-		Cell cell = row.getCell(i);
-		if (cell == null) {
-			return null;
-		}
-		String string = cell.getStringCellValue();
-		return string.trim();
 	}
 
 	private File[] getFiles() {

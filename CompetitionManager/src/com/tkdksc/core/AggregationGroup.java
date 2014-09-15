@@ -1,4 +1,4 @@
-package com.tkdksc;
+package com.tkdksc.core;
 
 public enum AggregationGroup {
 	MASSOGI("Massogi", "マッソギ"), TUL("Tul", "トゥル"), SPECIAL("Special", "スペシャル"), TEAM_TUL(
