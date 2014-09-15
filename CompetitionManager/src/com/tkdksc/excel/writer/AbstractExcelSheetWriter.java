@@ -79,7 +79,7 @@ public abstract class AbstractExcelSheetWriter {
 
 	protected abstract String[] getHeaderTitles();
 
-	protected abstract void writeClassfiedTable();
+	protected abstract void writeClassfiedTable(String classification);
 
 	protected void writeTableBodyRow(Object[] rowData) {
 		XSSFRow row = sheet.createRow(rowNum);

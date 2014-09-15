@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.tkdksc.AggregationGroup;
 import com.tkdksc.core.Category;
 
 public class ResultSheetWriter extends AbstractExcelSheetWriter {
@@ -20,19 +21,20 @@ public class ResultSheetWriter extends AbstractExcelSheetWriter {
 
 	@Override
 	protected void writeBody() {
-		writeClassfiedTable();
+		writeClassfiedTable(null);
 	}
 
 	@Override
-	protected void writeClassfiedTable() {
-		// ヘッダ
+	protected void writeClassfiedTable(String classification2) {
+		// header
 		writeTableHeaderRow();
 		nextLine();
-		//
+		// body
 		for (String categoryName : categoryMap.keySet()) {
 			Category category = categoryMap.get(categoryName);
-			if (!"マッソギ".equals(categoryName) && !"トゥル".equals(categoryName)
-					&& !"スペシャル".equals(categoryName)) {
+			if (!AggregationGroup.MASSOGI.getKana().equals(categoryName)
+					&& !AggregationGroup.TUL.getKana().equals(categoryName)
+					&& !AggregationGroup.SPECIAL.getKana().equals(categoryName)) {
 				continue;
 			}
 			for (String classification : category.getMap().keySet()) {

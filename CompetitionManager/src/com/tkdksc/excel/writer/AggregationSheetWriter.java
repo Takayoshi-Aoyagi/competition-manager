@@ -11,44 +11,42 @@ import com.tkdksc.core.Player;
 
 public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 
-	private Category category;
+	private Map<String, List<Player>> map;
 
 	public AggregationSheetWriter(XSSFWorkbook wb, String key,
 			Category category, XSSFCellStyle normalStyle,
 			XSSFCellStyle titleStyle) {
 		super(wb, key, normalStyle, titleStyle);
-		this.category = category;
+		map = category.getMap();
 	}
 
 	@Override
 	protected void writeBody() {
-		Map<String, List<Player>> map = category.getMap();
 		for (String classification : map.keySet()) {
 			if ("×".equals(classification)) {
 				continue;
 			}
-			// header
-			writeTableHeaderRow();
-			nextLine();
-			// body
-			List<Player> players = map.get(classification);
-			int numPlayer = 0;
-			for (Player player : players) {
-				numPlayer++;
-				Object[] rowData = { numPlayer, classification,
-						player.getName(), player.getKana(), player.getGrade(),
-						player.getDojo() };
-				writeTableBodyRow(rowData);
-				nextLine();
-			}
-			nextLine();
+			writeClassfiedTable(classification);
 		}
 	}
 
 	@Override
-	protected void writeClassfiedTable() {
-		// TODO Auto-generated method stub
-
+	protected void writeClassfiedTable(String classification) {
+		// header
+		writeTableHeaderRow();
+		nextLine();
+		// body
+		List<Player> players = map.get(classification);
+		int numPlayer = 0;
+		for (Player player : players) {
+			numPlayer++;
+			Object[] rowData = { numPlayer, classification,
+					player.getName(), player.getKana(), player.getGrade(),
+					player.getDojo() };
+			writeTableBodyRow(rowData);
+			nextLine();
+		}
+		nextLine();
 	}
 
 	@Override
