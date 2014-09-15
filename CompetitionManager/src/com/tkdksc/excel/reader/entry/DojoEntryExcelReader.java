@@ -1,4 +1,4 @@
-package com.tkdksc.excel.reader;
+package com.tkdksc.excel.reader.entry;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,7 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.tkdksc.core.Player;
 import com.tkdksc.utils.StringUtils;
 
-public class ExcelReader {
+public class DojoEntryExcelReader {
 
 	private List<Player> players = new ArrayList<Player>();
 	

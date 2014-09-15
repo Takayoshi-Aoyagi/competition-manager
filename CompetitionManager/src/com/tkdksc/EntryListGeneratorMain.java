@@ -8,16 +8,16 @@ import java.util.TreeMap;
 
 import com.tkdksc.core.Category;
 import com.tkdksc.core.Player;
-import com.tkdksc.excel.reader.ExcelReader;
-import com.tkdksc.excel.writer.ExcelWriter;
+import com.tkdksc.excel.reader.entry.DojoEntryExcelReader;
+import com.tkdksc.excel.writer.aggregate.ExcelWriter;
 import com.tkdksc.utils.PlayerUtils;
 
-public class Main {
+public class EntryListGeneratorMain {
 
 	public static void main(String[] args) throws IOException,
 			NoSuchMethodException, SecurityException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException {
-		ExcelReader er = new ExcelReader();
+		DojoEntryExcelReader er = new DojoEntryExcelReader();
 		List<Player> playerList = er.readFiles();
 		for (Player player : playerList) {
 			System.out.println(player);

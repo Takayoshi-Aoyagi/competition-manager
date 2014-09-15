@@ -1,4 +1,4 @@
-package com.tkdksc.excel.writer;
+package com.tkdksc.excel.writer.aggregate;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFCell;

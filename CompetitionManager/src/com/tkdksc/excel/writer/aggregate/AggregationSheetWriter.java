@@ -1,4 +1,4 @@
-package com.tkdksc.excel.writer;
+package com.tkdksc.excel.writer.aggregate;
 
 import java.util.List;
 import java.util.Map;
