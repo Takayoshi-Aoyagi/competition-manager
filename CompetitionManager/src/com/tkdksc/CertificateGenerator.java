@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import com.tkdksc.core.Prize;
-import com.tkdksc.excel.reader.entry.EntryListExcelReader;
-import com.tkdksc.excel.writer.certificate.CertificateExcelWriter;
+import com.tkdksc.io.excel.reader.entry.EntryListExcelReader;
+import com.tkdksc.io.excel.writer.certificate.CertificateExcelWriter;
 
 public class CertificateGenerator {
 

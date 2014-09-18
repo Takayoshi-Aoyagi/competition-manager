@@ -9,8 +9,8 @@ import java.util.TreeMap;
 import com.tkdksc.core.AggregationGroup;
 import com.tkdksc.core.Category;
 import com.tkdksc.core.Player;
-import com.tkdksc.excel.reader.entry.DojoEntryExcelReader;
-import com.tkdksc.excel.writer.aggregate.ExcelWriter;
+import com.tkdksc.io.excel.reader.entry.DojoEntryExcelReader;
+import com.tkdksc.io.excel.writer.aggregate.ExcelWriter;
 import com.tkdksc.utils.PlayerUtils;
 
 public class EntryListGeneratorMain {

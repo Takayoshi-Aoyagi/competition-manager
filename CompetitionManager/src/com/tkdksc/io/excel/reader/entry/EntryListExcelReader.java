@@ -1,4 +1,4 @@
-package com.tkdksc.excel.reader.entry;
+package com.tkdksc.io.excel.reader.entry;
 
 import java.io.File;
 import java.io.FileInputStream;
