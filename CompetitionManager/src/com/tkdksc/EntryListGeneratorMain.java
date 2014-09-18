@@ -19,21 +19,11 @@ public class EntryListGeneratorMain {
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		DojoEntryExcelReader er = new DojoEntryExcelReader();
 		List<Player> playerList = er.readFiles();
-		for (Player player : playerList) {
-			System.out.println(player);
-		}
-		Category massogi = PlayerUtils.toMap(AggregationGroup.MASSOGI, playerList);
-		Category tul = PlayerUtils.toMap(AggregationGroup.TUL, playerList);
-		Category special = PlayerUtils.toMap(AggregationGroup.SPECIAL, playerList);
-		Category teamTul = PlayerUtils.toMap(AggregationGroup.TEAM_TUL, playerList);
-		Category dojo = PlayerUtils.toMap(AggregationGroup.DOJO, playerList);
-
 		Map<String, Category> categoryMap = new TreeMap<String, Category>();
-		categoryMap.put(massogi.getName(), massogi);
-		categoryMap.put(tul.getName(), tul);
-		categoryMap.put(special.getName(), special);
-		categoryMap.put(teamTul.getName(), teamTul);
-		categoryMap.put(dojo.getName(), dojo);
+		for (AggregationGroup group : AggregationGroup.values()) {
+			Category categorized = PlayerUtils.toMap(group, playerList);
+			categoryMap.put(categorized.getName(), categorized);
+		}
 		//
 		dbg(categoryMap);
 
