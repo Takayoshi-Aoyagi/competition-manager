@@ -22,6 +22,10 @@ public class CertificateExcelWriter {
 	}
 
 	public void execute() throws IOException {
+		write();
+	}
+
+	private void write() throws FileNotFoundException, IOException {
 		FileOutputStream fos = new FileOutputStream(
 				new File("output/certificate.xlsx"));
 		try {

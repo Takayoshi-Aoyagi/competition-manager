@@ -11,4 +11,8 @@ public class StringUtils {
 		}
 		return false;
 	}
+	
+	public static String noBlank(String s) {
+		return s.replaceAll("　", "");
+	}
 }
