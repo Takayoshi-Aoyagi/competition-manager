@@ -19,9 +19,14 @@ public class EntryListExcelReader extends AbstractExcelReader {
 	private static final String MAGIC = "リザルト";
 
 	private List<Prize> prizeList = new ArrayList<Prize>();
+	private String inputFile;
+	
+	public EntryListExcelReader(String inputFile) {
+		this.inputFile = inputFile;
+	}
 
 	public List<Prize> execute() throws IOException {
-		FileInputStream fis = new FileInputStream(new File("input/entry_list.xlsx"));
+		FileInputStream fis = new FileInputStream(new File(inputFile));
 		XSSFWorkbook wb = new XSSFWorkbook(fis);
 		XSSFSheet sheet = wb.getSheet(MAGIC);
 		Iterator<Row> it = sheet.iterator();

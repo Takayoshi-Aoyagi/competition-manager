@@ -17,7 +17,8 @@ public class EntryListGeneratorMain {
 
 	public static void main(String[] args) throws IOException, NoSuchMethodException, SecurityException,
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		DojoEntryExcelReader er = new DojoEntryExcelReader();
+		String inputDir = "input/dojo";
+		DojoEntryExcelReader er = new DojoEntryExcelReader(inputDir);
 		List<Player> playerList = er.readFiles();
 		Map<String, Category> categoryMap = new TreeMap<String, Category>();
 		for (AggregationGroup group : AggregationGroup.values()) {
@@ -27,7 +28,7 @@ public class EntryListGeneratorMain {
 		//
 		dbg(categoryMap);
 
-		new ExcelWriter().write2excel(categoryMap);
+		new ExcelWriter(categoryMap, "output").write2excel();
 	}
 
 	private static void dbg(Map<String, Category> categoryMap) {

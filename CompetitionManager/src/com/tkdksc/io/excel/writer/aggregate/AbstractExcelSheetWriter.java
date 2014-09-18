@@ -37,13 +37,6 @@ public abstract class AbstractExcelSheetWriter {
 		return cell;
 	}
 
-	// protected XSSFCell writeNumericCell(int num, XSSFRow row, int index) {
-	// XSSFCell cell = row.createCell(index);
-	// cell.setCellType(Cell.CELL_TYPE_NUMERIC);
-	// cell.setCellValue(num);
-	// return cell;
-	// }
-
 	protected void write() {
 		writeTitle();
 		writeBody();

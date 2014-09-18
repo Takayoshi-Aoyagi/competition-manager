@@ -19,6 +19,11 @@ import com.tkdksc.utils.StringUtils;
 public class DojoEntryExcelReader extends AbstractExcelReader {
 
 	private List<Player> players = new ArrayList<Player>();
+	private String inputDir;
+
+	public DojoEntryExcelReader(String inputDir) {
+		this.inputDir = inputDir;
+	}
 
 	public List<Player> readFiles() throws FileNotFoundException, IOException {
 		File[] files = getFiles();
@@ -80,7 +85,7 @@ public class DojoEntryExcelReader extends AbstractExcelReader {
 	}
 
 	private File[] getFiles() {
-		File inputDir = new File("input");
+		File inputDir = new File(this.inputDir);
 		File[] files = inputDir.listFiles();
 		return files;
 	}

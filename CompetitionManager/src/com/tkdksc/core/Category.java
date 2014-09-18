@@ -12,7 +12,7 @@ public class Category {
 
 	public Category(AggregationGroup massogi) {
 		this.group = massogi;
-		map = new TreeMap<String, List<Player>>();
+		this.map = new TreeMap<String, List<Player>>();
 	}
 
 	public String getName() {

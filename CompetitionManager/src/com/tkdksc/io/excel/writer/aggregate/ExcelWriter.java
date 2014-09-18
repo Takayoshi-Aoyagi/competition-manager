@@ -17,9 +17,16 @@ public class ExcelWriter {
 
 	private XSSFCellStyle titleStyle;
 	private XSSFCellStyle normalStyle;
+	private String outputDir;
+	private Map<String, Category> categoryMap;
+	
+	public ExcelWriter(Map<String, Category> categoryMap, String outputDir) {
+		this.categoryMap = categoryMap;
+		this.outputDir = outputDir;
+	}
 
-	public void write2excel(Map<String, Category> categoryMap) throws IOException {
-		FileOutputStream fos = new FileOutputStream(new File("output/entry_list.xlsx"));
+	public void write2excel() throws IOException {
+		FileOutputStream fos = new FileOutputStream(new File(outputDir + "/entry_list.xlsx"));
 		try {
 			XSSFWorkbook wb = new XSSFWorkbook();
 			initStyles(wb);
