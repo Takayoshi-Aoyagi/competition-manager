@@ -14,8 +14,7 @@ public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 
 	private Map<String, List<Player>> map;
 
-	public AggregationSheetWriter(XSSFWorkbook wb, String key,
-			Category category, XSSFCellStyle normalStyle,
+	public AggregationSheetWriter(XSSFWorkbook wb, String key, Category category, XSSFCellStyle normalStyle,
 			XSSFCellStyle titleStyle) {
 		super(wb, key, normalStyle, titleStyle);
 		this.map = category.getMap();
@@ -41,9 +40,8 @@ public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 		int numPlayer = 0;
 		for (Player player : players) {
 			numPlayer++;
-			Object[] rowData = { numPlayer, classification,
-					player.getName(), player.getKana(), player.getGrade(),
-					player.getDojo() };
+			Object[] rowData = { numPlayer, classification, player.getName(), player.getKana(),
+					player.getGrade(), player.getDojo() };
 			writeTableBodyRow(rowData);
 			nextLine();
 		}

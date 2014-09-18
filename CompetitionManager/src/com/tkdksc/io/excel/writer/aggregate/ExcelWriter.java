@@ -18,10 +18,8 @@ public class ExcelWriter {
 	private XSSFCellStyle titleStyle;
 	private XSSFCellStyle normalStyle;
 
-	public void write2excel(Map<String, Category> categoryMap)
-			throws IOException {
-		FileOutputStream fos = new FileOutputStream(new File(
-				"output/entry_list.xlsx"));
+	public void write2excel(Map<String, Category> categoryMap) throws IOException {
+		FileOutputStream fos = new FileOutputStream(new File("output/entry_list.xlsx"));
 		try {
 			XSSFWorkbook wb = new XSSFWorkbook();
 			initStyles(wb);
@@ -39,8 +37,7 @@ public class ExcelWriter {
 	private void initStyles(XSSFWorkbook wb) {
 		titleStyle = wb.createCellStyle();
 		titleStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
-		titleStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT
-				.getIndex());
+		titleStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
 		box(titleStyle);
 		//
 		normalStyle = wb.createCellStyle();

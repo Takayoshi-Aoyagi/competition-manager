@@ -16,8 +16,8 @@ public abstract class AbstractExcelSheetWriter {
 	protected XSSFSheet sheet;
 	protected int rowNum = 0;
 
-	protected AbstractExcelSheetWriter(XSSFWorkbook wb, String title,
-			XSSFCellStyle normalStyle, XSSFCellStyle titleStyle) {
+	protected AbstractExcelSheetWriter(XSSFWorkbook wb, String title, XSSFCellStyle normalStyle,
+			XSSFCellStyle titleStyle) {
 		this.wb = wb;
 		this.title = title;
 		this.normalStyle = normalStyle;
@@ -30,19 +30,19 @@ public abstract class AbstractExcelSheetWriter {
 		if (obj instanceof String) {
 			cell.setCellType(Cell.CELL_TYPE_STRING);
 			cell.setCellValue((String) obj);
-		} else if (obj instanceof Integer){
+		} else if (obj instanceof Integer) {
 			cell.setCellType(Cell.CELL_TYPE_NUMERIC);
-			cell.setCellValue((Integer) obj);			
+			cell.setCellValue((Integer) obj);
 		}
 		return cell;
 	}
 
-//	protected XSSFCell writeNumericCell(int num, XSSFRow row, int index) {
-//		XSSFCell cell = row.createCell(index);
-//		cell.setCellType(Cell.CELL_TYPE_NUMERIC);
-//		cell.setCellValue(num);
-//		return cell;
-//	}
+	// protected XSSFCell writeNumericCell(int num, XSSFRow row, int index) {
+	// XSSFCell cell = row.createCell(index);
+	// cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+	// cell.setCellValue(num);
+	// return cell;
+	// }
 
 	protected void write() {
 		writeTitle();

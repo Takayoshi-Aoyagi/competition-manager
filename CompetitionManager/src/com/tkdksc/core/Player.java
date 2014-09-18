@@ -11,9 +11,8 @@ public class Player {
 	private String kana;
 	private String entryFee;
 
-	public Player(String name, String grade, String dojo, String tul,
-			String massogi, String special, String teamTul, String kana,
-			String entryFee) {
+	public Player(String name, String grade, String dojo, String tul, String massogi, String special,
+			String teamTul, String kana, String entryFee) {
 		super();
 		this.name = name;
 		this.grade = grade;
@@ -28,9 +27,8 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return "Player [name=" + name + ", grade=" + grade + ", dojo=" + dojo
-				+ ", tul=" + tul + ", massogi=" + massogi + ", special="
-				+ special + ", teamTul=" + teamTul + ", kana=" + kana
+		return "Player [name=" + name + ", grade=" + grade + ", dojo=" + dojo + ", tul=" + tul + ", massogi="
+				+ massogi + ", special=" + special + ", teamTul=" + teamTul + ", kana=" + kana
 				+ ", entryFee=" + entryFee + "]";
 	}
 

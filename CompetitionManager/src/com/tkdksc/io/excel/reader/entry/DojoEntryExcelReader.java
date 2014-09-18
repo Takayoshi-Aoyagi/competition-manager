@@ -28,8 +28,7 @@ public class DojoEntryExcelReader extends AbstractExcelReader {
 		return players;
 	}
 
-	private void readByFile(File file) throws FileNotFoundException,
-			IOException {
+	private void readByFile(File file) throws FileNotFoundException, IOException {
 		FileInputStream fis = new FileInputStream(file);
 		try {
 			readByWorkbook(fis);
@@ -76,8 +75,7 @@ public class DojoEntryExcelReader extends AbstractExcelReader {
 		if (StringUtils.isNullOrEmpty(name) || StringUtils.isNullOrEmpty(kana)) {
 			return null;
 		}
-		Player player = new Player(name, grade, dojo, tul, massogi, special,
-				teamTul, kana, entryFee);
+		Player player = new Player(name, grade, dojo, tul, massogi, special, teamTul, kana, entryFee);
 		return player;
 	}
 

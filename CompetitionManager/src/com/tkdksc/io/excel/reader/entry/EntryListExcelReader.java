@@ -21,8 +21,7 @@ public class EntryListExcelReader extends AbstractExcelReader {
 	private List<Prize> prizeList = new ArrayList<Prize>();
 
 	public List<Prize> execute() throws IOException {
-		FileInputStream fis = new FileInputStream(new File(
-				"input/entry_list.xlsx"));
+		FileInputStream fis = new FileInputStream(new File("input/entry_list.xlsx"));
 		XSSFWorkbook wb = new XSSFWorkbook(fis);
 		XSSFSheet sheet = wb.getSheet(MAGIC);
 		Iterator<Row> it = sheet.iterator();
@@ -41,16 +40,13 @@ public class EntryListExcelReader extends AbstractExcelReader {
 				prizeList.add(new Prize(category, classification, "優勝", first));
 			}
 			if (!StringUtils.isNullOrEmpty(second)) {
-				prizeList
-						.add(new Prize(category, classification, "準優勝", second));
+				prizeList.add(new Prize(category, classification, "準優勝", second));
 			}
 			if (!StringUtils.isNullOrEmpty(third1)) {
-				prizeList
-						.add(new Prize(category, classification, "第三位", third1));
+				prizeList.add(new Prize(category, classification, "第三位", third1));
 			}
 			if (!StringUtils.isNullOrEmpty(third2)) {
-				prizeList
-						.add(new Prize(category, classification, "第三位", third2));
+				prizeList.add(new Prize(category, classification, "第三位", third2));
 			}
 		}
 		//

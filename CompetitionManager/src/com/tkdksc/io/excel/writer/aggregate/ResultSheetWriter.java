@@ -12,8 +12,7 @@ public class ResultSheetWriter extends AbstractExcelSheetWriter {
 
 	private Map<String, Category> categoryMap;
 
-	public ResultSheetWriter(XSSFWorkbook wb,
-			Map<String, Category> categoryMap, XSSFCellStyle normalStyle,
+	public ResultSheetWriter(XSSFWorkbook wb, Map<String, Category> categoryMap, XSSFCellStyle normalStyle,
 			XSSFCellStyle titleStyle) {
 		super(wb, "リザルト", normalStyle, titleStyle);
 		this.categoryMap = categoryMap;
@@ -41,8 +40,7 @@ public class ResultSheetWriter extends AbstractExcelSheetWriter {
 				if ("×".equals(classification)) {
 					continue;
 				}
-				String[] rowData = { categoryName, classification, "", "", "",
-						"" };
+				String[] rowData = { categoryName, classification, "", "", "", "" };
 				writeTableBodyRow(rowData);
 				nextLine();
 			}

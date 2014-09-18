@@ -15,21 +15,17 @@ import com.tkdksc.utils.PlayerUtils;
 
 public class EntryListGeneratorMain {
 
-	public static void main(String[] args) throws IOException,
-			NoSuchMethodException, SecurityException, IllegalAccessException,
-			IllegalArgumentException, InvocationTargetException {
+	public static void main(String[] args) throws IOException, NoSuchMethodException, SecurityException,
+			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		DojoEntryExcelReader er = new DojoEntryExcelReader();
 		List<Player> playerList = er.readFiles();
 		for (Player player : playerList) {
 			System.out.println(player);
 		}
-		Category massogi = PlayerUtils.toMap(AggregationGroup.MASSOGI,
-				playerList);
+		Category massogi = PlayerUtils.toMap(AggregationGroup.MASSOGI, playerList);
 		Category tul = PlayerUtils.toMap(AggregationGroup.TUL, playerList);
-		Category special = PlayerUtils.toMap(AggregationGroup.SPECIAL,
-				playerList);
-		Category teamTul = PlayerUtils.toMap(AggregationGroup.TEAM_TUL,
-				playerList);
+		Category special = PlayerUtils.toMap(AggregationGroup.SPECIAL, playerList);
+		Category teamTul = PlayerUtils.toMap(AggregationGroup.TEAM_TUL, playerList);
 		Category dojo = PlayerUtils.toMap(AggregationGroup.DOJO, playerList);
 
 		Map<String, Category> categoryMap = new TreeMap<String, Category>();

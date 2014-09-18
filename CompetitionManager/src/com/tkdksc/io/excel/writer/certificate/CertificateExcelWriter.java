@@ -26,14 +26,12 @@ public class CertificateExcelWriter {
 	}
 
 	private void write() throws FileNotFoundException, IOException {
-		FileOutputStream fos = new FileOutputStream(
-				new File("output/certificate.xlsx"));
+		FileOutputStream fos = new FileOutputStream(new File("output/certificate.xlsx"));
 		try {
 			XSSFWorkbook wb = new XSSFWorkbook();
 			for (Prize prize : prizeList) {
 				XSSFSheet sheet = wb.createSheet();
-				writeRow(0, sheet,
-						prize.getCategory() + " " + prize.getClassification());
+				writeRow(0, sheet, prize.getCategory() + " " + prize.getClassification());
 				writeRow(1, sheet, prize.getRank());
 				writeRow(2, sheet, prize.getName());
 			}

@@ -7,8 +7,7 @@ public class Prize {
 	private String rank;
 	private String name;
 
-	public Prize(String category, String classification, String rank,
-			String name) {
+	public Prize(String category, String classification, String rank, String name) {
 		super();
 		this.category = category;
 		this.classification = classification;
@@ -50,7 +49,7 @@ public class Prize {
 
 	@Override
 	public String toString() {
-		return "Prize [category=" + category + ", classification="
-				+ classification + ", rank=" + rank + ", name=" + name + "]";
+		return "Prize [category=" + category + ", classification=" + classification + ", rank=" + rank
+				+ ", name=" + name + "]";
 	}
 }

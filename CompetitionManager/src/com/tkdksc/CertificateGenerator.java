@@ -14,7 +14,7 @@ public class CertificateGenerator {
 	public static void main(String[] args) throws IOException, InvalidFormatException {
 		EntryListExcelReader er = new EntryListExcelReader();
 		List<Prize> prizeList = er.execute();
-		CertificateWordWriter cw = new CertificateWordWriter(prizeList);
+		CertificateWordWriter cw = new CertificateWordWriter("output/certificate", prizeList);
 		cw.execute();
 	}
 }

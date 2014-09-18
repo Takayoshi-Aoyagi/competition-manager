@@ -1,8 +1,8 @@
 package com.tkdksc.core;
 
 public enum AggregationGroup {
-	MASSOGI("Massogi", "マッソギ"), TUL("Tul", "トゥル"), SPECIAL("Special", "スペシャル"), TEAM_TUL(
-			"TeamTul", "団体トゥル"), DOJO("Dojo", "道場"), ABSENCE("", "×");
+	MASSOGI("Massogi", "マッソギ"), TUL("Tul", "トゥル"), SPECIAL("Special", "スペシャル"), TEAM_TUL("TeamTul", "団体トゥル"), DOJO(
+			"Dojo", "道場"), ABSENCE("", "×");
 
 	private String methodName;
 	private String kana;

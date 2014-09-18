@@ -17,10 +17,12 @@ import com.tkdksc.utils.StringUtils;
 
 public class CertificateWordWriter {
 
+	private String outputDir;
 	private List<Prize> prizeList;
 
-	public CertificateWordWriter(List<Prize> prizeList) {
+	public CertificateWordWriter(String outputDir, List<Prize> prizeList) {
 		this.prizeList = prizeList;
+		this.outputDir = outputDir;
 	}
 
 	public void execute() throws IOException, InvalidFormatException {
@@ -29,18 +31,15 @@ public class CertificateWordWriter {
 		}
 	}
 
-	private void writeFile(Prize prize) throws IOException,
-			InvalidFormatException {
+	private void writeFile(Prize prize) throws IOException, InvalidFormatException {
 		XWPFDocument doc = readTemplate();
 		replaceText(prize, doc);
 		writeFile(prize, doc);
 	}
 
-	private void writeFile(Prize prize, XWPFDocument doc)
-			throws FileNotFoundException, IOException {
-		String filename = String
-				.format("output/certificate/%s%s-%s.docx", prize.getCategory(),
-						prize.getClassification(), prize.getRank());
+	private void writeFile(Prize prize, XWPFDocument doc) throws FileNotFoundException, IOException {
+		String filename = String.format("%s/%s%s-%s.docx", outputDir, prize.getCategory(),
+				prize.getClassification(), prize.getRank());
 		filename = StringUtils.noBlank(filename);
 		FileOutputStream fos = new FileOutputStream(new File(filename));
 		try {
@@ -58,8 +57,8 @@ public class CertificateWordWriter {
 					continue;
 				}
 				if (text.indexOf("CLASSIFICATION") >= 0) {
-					String classification = String.format("%s %s",
-							prize.getCategory(), prize.getClassification());
+					String classification = String.format("%s %s", prize.getCategory(),
+							prize.getClassification());
 					classification = StringUtils.noBlank(classification);
 					r.setText(classification, 0);
 				}
@@ -73,10 +72,8 @@ public class CertificateWordWriter {
 		}
 	}
 
-	private XWPFDocument readTemplate() throws IOException,
-			InvalidFormatException {
-		XWPFDocument doc = new XWPFDocument(
-				OPCPackage.open("template/certificate_template.docx"));
+	private XWPFDocument readTemplate() throws IOException, InvalidFormatException {
+		XWPFDocument doc = new XWPFDocument(OPCPackage.open("template/certificate_template.docx"));
 		return doc;
 	}
 }
