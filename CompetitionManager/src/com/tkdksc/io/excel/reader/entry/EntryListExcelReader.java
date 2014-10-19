@@ -48,10 +48,10 @@ public class EntryListExcelReader extends AbstractExcelReader {
 				prizeList.add(new Prize(category, classification, "準優勝", second));
 			}
 			if (!StringUtils.isNullOrEmpty(third1)) {
-				prizeList.add(new Prize(category, classification, "第三位", third1));
+				prizeList.add(new Prize(category, classification, "第三位-1", third1));
 			}
 			if (!StringUtils.isNullOrEmpty(third2)) {
-				prizeList.add(new Prize(category, classification, "第三位", third2));
+				prizeList.add(new Prize(category, classification, "第三位-2", third2));
 			}
 		}
 		//
