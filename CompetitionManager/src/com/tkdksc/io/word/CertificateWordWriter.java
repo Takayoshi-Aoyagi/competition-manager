@@ -38,8 +38,15 @@ public class CertificateWordWriter {
 	}
 
 	private void writeFile(Prize prize, XWPFDocument doc) throws FileNotFoundException, IOException {
-		String filename = String.format("%s/%s%s-%s.docx", outputDir, prize.getCategory(),
-				prize.getClassification(), prize.getRank());
+		String filename;
+		Integer magic = prize.getMagic();
+		if (magic == null) {
+			filename = String.format("%s/%s%s-%s.docx", outputDir, prize.getCategory(),
+					prize.getClassification(), prize.getRank());
+		} else {
+			filename = String.format("%s/%s%s-%s-%d.docx", outputDir, prize.getCategory(),
+					prize.getClassification(), prize.getRank(), prize.getMagic());			
+		}
 		filename = StringUtils.noBlank(filename);
 		FileOutputStream fos = new FileOutputStream(new File(filename));
 		try {

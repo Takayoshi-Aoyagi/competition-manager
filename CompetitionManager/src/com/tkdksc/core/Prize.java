@@ -6,6 +6,7 @@ public class Prize {
 	private String classification;
 	private String rank;
 	private String name;
+	private Integer magic;
 
 	public Prize(String category, String classification, String rank, String name) {
 		super();
@@ -13,6 +14,15 @@ public class Prize {
 		this.classification = classification;
 		this.rank = rank;
 		this.name = name;
+	}
+
+	public Prize(String category, String classification, String rank, String name, int magic) {
+		super();
+		this.category = category;
+		this.classification = classification;
+		this.rank = rank;
+		this.name = name;
+		this.magic = magic;
 	}
 
 	public String getCategory() {
@@ -47,9 +57,17 @@ public class Prize {
 		this.name = name;
 	}
 
+	public Integer getMagic() {
+		return magic;
+	}
+
+	public void setMagic(Integer magic) {
+		this.magic = magic;
+	}
+
 	@Override
 	public String toString() {
 		return "Prize [category=" + category + ", classification=" + classification + ", rank=" + rank
-				+ ", name=" + name + "]";
+				+ ", name=" + name + ", magic=" + magic + "]";
 	}
 }
