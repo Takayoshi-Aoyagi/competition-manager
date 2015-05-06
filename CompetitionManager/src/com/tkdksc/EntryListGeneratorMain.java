@@ -1,5 +1,8 @@
 package com.tkdksc;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -31,6 +34,9 @@ public class EntryListGeneratorMain {
 	public static void main(String[] args) throws IOException, NoSuchMethodException, SecurityException,
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		String inputDir = "input/dojo";
+		if (args.length > 0) {
+			inputDir = args[0];
+		}
 		DojoEntryExcelReader er = new DojoEntryExcelReader(inputDir);
 		List<Player> playerList = er.readFiles();
 		Map<String, Category> categoryMap = new TreeMap<String, Category>();
@@ -41,9 +47,22 @@ public class EntryListGeneratorMain {
 		//
 		dbg(categoryMap);
 
-		merge(categoryMap);
+//		merge(categoryMap);
 
-		new ExcelWriter(categoryMap, "output").write2excel();
+		new File("data/excel").mkdirs();
+		new ExcelWriter(categoryMap, "data/excel").write2excel();
+		
+		new File("data/json/categories").mkdirs();
+		for (String categoryName: categoryMap.keySet()) {
+			BufferedWriter bw = null;
+			try {
+				bw = new BufferedWriter(new FileWriter("data/json/categories/" + categoryName + ".json"));
+				Category category = categoryMap.get(categoryName);
+				bw.write(category.toJSON());
+			} finally {
+				bw.close();
+			}
+		}
 	}
 
 	private static void merge(Map<String, Category> categoryMap) {

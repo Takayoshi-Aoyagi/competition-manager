@@ -1,9 +1,12 @@
 package com.tkdksc.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
+import net.arnx.jsonic.JSON;
 
 public class Category {
 
@@ -44,5 +47,12 @@ public class Category {
 			}
 		}
 		return sb.toString();
+	}
+
+	public String toJSON() {
+		Map<String, Object> groupMap = new HashMap<String, Object>();
+		groupMap.put("category", group.name());
+		groupMap.put("data", map);
+		return JSON.encode(groupMap, true);
 	}
 }
