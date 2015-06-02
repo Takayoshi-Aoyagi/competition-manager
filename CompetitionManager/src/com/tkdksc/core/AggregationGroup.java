@@ -19,4 +19,13 @@ public enum AggregationGroup {
 	public String getKana() {
 		return kana;
 	}
+	
+	public static AggregationGroup getByName(String name) {
+		for (AggregationGroup value: values()) {
+			if (name.equals(value.name())) {
+				return value;
+			}
+		}
+		throw new AssertionError();
+	}
 }

@@ -5,10 +5,15 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
+import net.arnx.jsonic.JSON;
 
 import com.tkdksc.core.AggregationGroup;
 import com.tkdksc.core.Category;
@@ -22,13 +27,31 @@ public class EntryListGeneratorMain {
 
 	private static List<MergerInfo> miList = new ArrayList<MergerInfo>();
 	static {
-		miList.add(new MergerInfo(AggregationGroup.TUL, "幼年・小学１年白帯の部（9,10級）", "小学 1～3年　白帯の部（9,10級）",
-				"幼年の部（級位・男女混合）"));
-		miList.add(new MergerInfo(AggregationGroup.TUL, "小学生　緑帯の部 （6級～5級）", "小学4～6年　緑帯の部 （6級～5級）　",
-				"小学 1～3年　緑帯の部 （6級～5級）　"));
-		miList.add(new MergerInfo(AggregationGroup.TUL, "成年男女　黄,緑帯の部（8級～5級）　", "成年女子　黄,緑帯の部（8級～5級）　",
-				"成年男子　黄・緑帯の部（8級～5級）　 　　"));
-		miList.add(new MergerInfo(AggregationGroup.MASSOGI, "幼年・小学１・２年　男子の部", "幼年の部（級位・男女混合）", "小学１・２年　男子の部"));
+		byte[] fileContentBytes;
+		try {
+			fileContentBytes = Files.readAllBytes(Paths.get("data/merge/merge.json"));
+			// 読み込んだバイト列を UTF-8 でデコードして文字列にする
+			String fileContentStr = new String(fileContentBytes, StandardCharsets.UTF_8);
+			List<Map> list = (List<Map>)JSON.decode(fileContentStr);
+			for (Map obj: list) {
+				AggregationGroup type = AggregationGroup.getByName((String)obj.get("type"));
+				String newName = (String) obj.get("name");
+				String[] categories = (String[]) ((List<MergerInfo>) obj.get("classes")).toArray(new String[0]);
+				MergerInfo mi = new MergerInfo(type, newName, categories);
+				miList.add(mi);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+
+//		miList.add(new MergerInfo(AggregationGroup.TUL, "幼年・小学１年白帯の部（9,10級）", "小学 1～3年　白帯の部（9,10級）",
+//				"幼年の部（級位・男女混合）"));
+//		miList.add(new MergerInfo(AggregationGroup.TUL, "小学生　緑帯の部 （6級～5級）", "小学4～6年　緑帯の部 （6級～5級）　",
+//				"小学 1～3年　緑帯の部 （6級～5級）　"));
+//		miList.add(new MergerInfo(AggregationGroup.TUL, "成年男女　黄,緑帯の部（8級～5級）　", "成年女子　黄,緑帯の部（8級～5級）　",
+//				"成年男子　黄・緑帯の部（8級～5級）　 　　"));
+//		miList.add(new MergerInfo(AggregationGroup.MASSOGI, "幼年・小学１・２年　男子の部", "幼年の部（級位・男女混合）", "小学１・２年　男子の部"));
 	}
 
 	public static void main(String[] args) throws IOException, NoSuchMethodException, SecurityException,
@@ -47,7 +70,7 @@ public class EntryListGeneratorMain {
 		//
 		dbg(categoryMap);
 
-//		merge(categoryMap);
+		merge(categoryMap);
 
 		new File("data/excel").mkdirs();
 		new ExcelWriter(categoryMap, "data/excel").write2excel();
