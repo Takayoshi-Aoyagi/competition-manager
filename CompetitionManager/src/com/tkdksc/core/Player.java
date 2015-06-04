@@ -1,5 +1,7 @@
 package com.tkdksc.core;
 
+import com.tkdksc.utils.StringUtils;
+
 public class Player {
 	private String name;
 	private String grade;
@@ -17,8 +19,8 @@ public class Player {
 		this.name = name;
 		this.grade = grade;
 		this.dojo = dojo;
-		this.tul = tul;
-		this.massogi = massogi;
+		this.tul = StringUtils.trim(tul);
+		this.massogi = StringUtils.trim(massogi);
 		this.special = special;
 		this.teamTul = teamTul;
 		this.kana = kana;

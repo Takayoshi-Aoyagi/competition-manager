@@ -49,6 +49,10 @@ public class Merger {
 
 			for (String classification : mi.getList()) {
 				List<Player> players = map.get(classification);
+				if (players == null) {
+					System.err.println(String.format("Error in [%s]", classification));
+					System.err.println(mi);
+				}
 				mergedPlayers.addAll(players);
 				map.remove(classification);
 				for (Player player : players) {

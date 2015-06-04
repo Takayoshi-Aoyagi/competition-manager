@@ -28,4 +28,9 @@ public class MergerInfo {
 	public List<String> getList() {
 		return list;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("group=[%s], newName=[%s], list=[%s]", group, newName, list);
+	}
 }
