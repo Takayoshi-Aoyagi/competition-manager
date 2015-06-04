@@ -16,6 +16,7 @@ import com.tkdksc.io.excel.reader.entry.DojoEntryExcelReader;
 import com.tkdksc.io.excel.writer.aggregate.ExcelWriter;
 import com.tkdksc.utils.Merger;
 import com.tkdksc.utils.PlayerUtils;
+import com.tkdksc.utils.Separator;
 
 public class EntryListGeneratorMain {
 
@@ -23,12 +24,20 @@ public class EntryListGeneratorMain {
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		String inputDir = "input/dojo";
 		String mergeConfPath = "data/merge/merge.json";
+//		String separateConfPath = "data/merge/separate.json";
 		if (args.length > 0) {
 			inputDir = args[0];
 			mergeConfPath = args[1];
+//			separateConfPath = args[2];
 		}
 		DojoEntryExcelReader er = new DojoEntryExcelReader(inputDir);
 		List<Player> playerList = er.readFiles();
+
+		// separator
+		Separator separator = new Separator();
+		separator.separate(playerList);
+		
+		
 		Map<String, Category> categoryMap = new TreeMap<String, Category>();
 		for (AggregationGroup group : AggregationGroup.values()) {
 			Category categorized = PlayerUtils.toMap(group, playerList);
@@ -39,6 +48,7 @@ public class EntryListGeneratorMain {
 
 		Merger merger = new Merger(mergeConfPath);
 		merger.merge(categoryMap);
+		
 
 		new File("data/excel").mkdirs();
 		new ExcelWriter(categoryMap, "data/excel").write2excel();
