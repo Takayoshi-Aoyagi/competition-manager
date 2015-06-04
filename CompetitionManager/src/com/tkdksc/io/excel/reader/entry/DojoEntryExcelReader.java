@@ -20,6 +20,7 @@ public class DojoEntryExcelReader extends AbstractExcelReader {
 
 	private List<Player> players = new ArrayList<Player>();
 	private String inputDir;
+	private int seq = 0;
 
 	public DojoEntryExcelReader(String inputDir) {
 		this.inputDir = inputDir;
@@ -80,7 +81,8 @@ public class DojoEntryExcelReader extends AbstractExcelReader {
 		if (StringUtils.isNullOrEmpty(name) || StringUtils.isNullOrEmpty(kana)) {
 			return null;
 		}
-		Player player = new Player(name, grade, dojo, tul, massogi, special, teamTul, kana, entryFee);
+		seq++;
+		Player player = new Player(name, grade, dojo, tul, massogi, special, teamTul, kana, entryFee, seq);
 		return player;
 	}
 

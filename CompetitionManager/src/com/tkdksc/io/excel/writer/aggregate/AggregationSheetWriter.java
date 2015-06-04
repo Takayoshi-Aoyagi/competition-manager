@@ -39,7 +39,7 @@ public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 		int numPlayer = 0;
 		for (Player player : players) {
 			numPlayer++;
-			Object[] rowData = { numPlayer, classification, player.getName(), player.getKana(),
+			Object[] rowData = { numPlayer, classification, player.getSeq(), player.getName(), player.getKana(),
 					player.getGrade(), player.getDojo() };
 			writeTableBodyRow(rowData);
 			nextLine();
@@ -49,7 +49,7 @@ public class AggregationSheetWriter extends AbstractExcelSheetWriter {
 
 	@Override
 	protected String[] getHeaderTitles() {
-		String[] headers = { "No.", "カテゴリー", "氏名", "かな", "級位・段位", "道場" };
+		String[] headers = { "No.", "カテゴリー", "ゼッケン", "氏名", "かな", "級位・段位", "道場" };
 		return headers;
 	}
 }
