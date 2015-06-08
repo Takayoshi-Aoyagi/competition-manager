@@ -1,0 +1,32 @@
+{
+  "name": "",
+  "kana": "",
+  "children": [
+    {
+      "dojo": "首都大",
+      "entryFee": "",
+      "grade": "6級",
+      "kana": "イワシマ　アユミ",
+      "massogi": "有級 成年女子 ライト級（－57kg）",
+      "name": "岩島　あゆみ",
+      "seq": 3,
+      "special": "",
+      "teamTul": "",
+      "tul": "成年男女 黄・緑帯の部（8級～5級）",
+      "order": 0
+    },
+    {
+      "dojo": "首都大",
+      "entryFee": "",
+      "grade": "6級",
+      "kana": "カネコ　マリコ",
+      "massogi": "有級 成年女子 ライト級（－57kg）",
+      "name": "金子　真理子",
+      "seq": 4,
+      "special": "",
+      "teamTul": "",
+      "tul": "成年男女 黄・緑帯の部（8級～5級）",
+      "order": 1
+    }
+  ]
+}

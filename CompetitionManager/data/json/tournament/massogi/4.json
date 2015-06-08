@@ -1,0 +1,250 @@
+{
+  "name": "",
+  "kana": "",
+  "children": [
+    {
+      "name": "",
+      "kana": "",
+      "children": [
+        {
+          "name": "",
+          "kana": "",
+          "children": [
+            {
+              "name": "",
+              "kana": "",
+              "children": [
+                {
+                  "dojo": "松戸",
+                  "entryFee": "○",
+                  "grade": "2級",
+                  "kana": "てらしま　さゆり",
+                  "massogi": "小学３・４年 級段位混合女子の部",
+                  "name": "寺島　さゆり",
+                  "seq": 29,
+                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                  "teamTul": "",
+                  "tul": "小学1～6年 赤帯の部 （2級～1級）",
+                  "order": 0
+                },
+                {
+                  "kana": "---",
+                  "name": "---",
+                  "order": 1
+                }
+              ]
+            },
+            {
+              "name": "",
+              "kana": "",
+              "children": [
+                {
+                  "dojo": "柏田中",
+                  "entryFee": "○",
+                  "grade": "6級",
+                  "kana": "さくらば　あおり",
+                  "massogi": "小学３・４年 級段位混合女子の部",
+                  "name": "櫻庭　碧織",
+                  "seq": 43,
+                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                  "teamTul": "",
+                  "tul": "小学 1～3年 緑帯の部 （6級～5級）",
+                  "order": 2
+                },
+                {
+                  "kana": "---",
+                  "name": "---",
+                  "order": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "",
+          "kana": "",
+          "children": [
+            {
+              "name": "",
+              "kana": "",
+              "children": [
+                {
+                  "dojo": "松戸",
+                  "entryFee": "○",
+                  "grade": "8級",
+                  "kana": "すがわら　はるみ",
+                  "massogi": "小学３・４年 級段位混合女子の部",
+                  "name": "菅原　晴海",
+                  "seq": 40,
+                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                  "teamTul": "",
+                  "tul": "小学4～6年 黄帯の部 （8級～7級）",
+                  "order": 4
+                },
+                {
+                  "dojo": "川口",
+                  "entryFee": "○",
+                  "grade": "6級",
+                  "kana": "おかだ　ふみ",
+                  "massogi": "小学３・４年 級段位混合女子の部",
+                  "name": "岡田　符美",
+                  "seq": 74,
+                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                  "teamTul": "",
+                  "tul": "小学4～6年 緑帯の部（6級～５級）",
+                  "order": 5
+                }
+              ]
+            },
+            {
+              "name": "",
+              "kana": "",
+              "children": [
+                {
+                  "dojo": "JAC守谷",
+                  "entryFee": "",
+                  "grade": "2級",
+                  "kana": "なかじまみく",
+                  "massogi": "小学３・４年 級段位混合女子の部",
+                  "name": "中島実紅",
+                  "seq": 63,
+                  "special": "",
+                  "teamTul": "",
+                  "tul": "小学1～6年 赤帯の部 （2級～1級）",
+                  "order": 6
+                },
+                {
+                  "kana": "---",
+                  "name": "---",
+                  "order": 7
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "",
+      "kana": "",
+      "children": [
+        {
+          "name": "",
+          "kana": "",
+          "children": [
+            {
+              "name": "",
+              "kana": "",
+              "children": [
+                {
+                  "dojo": "松戸",
+                  "entryFee": "○",
+                  "grade": "8級",
+                  "kana": "たかはし　みさき",
+                  "massogi": "小学３・４年 級段位混合女子の部",
+                  "name": "髙橋　美咲希",
+                  "seq": 38,
+                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                  "teamTul": "",
+                  "tul": "小学 1～3年 黄帯の部 （8級～7級）",
+                  "order": 8
+                },
+                {
+                  "kana": "---",
+                  "name": "---",
+                  "order": 9
+                }
+              ]
+            },
+            {
+              "name": "",
+              "kana": "",
+              "children": [
+                {
+                  "dojo": "川口",
+                  "entryFee": "×",
+                  "grade": "5級",
+                  "kana": "つつみ　こはる",
+                  "massogi": "小学３・４年 級段位混合女子の部",
+                  "name": "堤　小春",
+                  "seq": 76,
+                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                  "teamTul": "",
+                  "tul": "小学 1～3年 緑帯の部 （6級～5級）",
+                  "order": 10
+                },
+                {
+                  "kana": "---",
+                  "name": "---",
+                  "order": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "",
+          "kana": "",
+          "children": [
+            {
+              "name": "",
+              "kana": "",
+              "children": [
+                {
+                  "dojo": "松戸",
+                  "entryFee": "○",
+                  "grade": "6級",
+                  "kana": "やまもと　ゆいか",
+                  "massogi": "小学３・４年 級段位混合女子の部",
+                  "name": "山本　結楓",
+                  "seq": 31,
+                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                  "teamTul": "",
+                  "tul": "小学4～6年 緑帯の部（6級～５級）",
+                  "order": 12
+                },
+                {
+                  "kana": "---",
+                  "name": "---",
+                  "order": 13
+                }
+              ]
+            },
+            {
+              "name": "",
+              "kana": "",
+              "children": [
+                {
+                  "dojo": "守谷",
+                  "entryFee": "",
+                  "grade": "6級",
+                  "kana": "かんのゆずき",
+                  "massogi": "小学３・４年 級段位混合女子の部",
+                  "name": "神野佑月",
+                  "seq": 59,
+                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                  "teamTul": "",
+                  "tul": "小学4～6年 緑帯の部（6級～５級）",
+                  "order": 14
+                },
+                {
+                  "dojo": "船橋",
+                  "entryFee": "○",
+                  "grade": "6級",
+                  "kana": "おおつか　さら",
+                  "massogi": "小学３・４年 級段位混合女子の部",
+                  "name": "大塚　紗楽",
+                  "seq": 55,
+                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                  "teamTul": "",
+                  "tul": "小学4～6年 緑帯の部（6級～５級）",
+                  "order": 15
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

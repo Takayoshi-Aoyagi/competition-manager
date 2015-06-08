@@ -1,0 +1,130 @@
+{
+  "name": "",
+  "kana": "",
+  "children": [
+    {
+      "name": "",
+      "kana": "",
+      "children": [
+        {
+          "name": "",
+          "kana": "",
+          "children": [
+            {
+              "dojo": "川口",
+              "entryFee": "○",
+              "grade": "6級",
+              "kana": "ましも　かずよし",
+              "massogi": "有級 成年男子 ミドル・ヘビー級（+64kg）",
+              "name": "眞下　和良",
+              "seq": 72,
+              "special": "×",
+              "teamTul": "",
+              "tul": "成年男女 黄・緑帯の部（8級～5級）",
+              "order": 0
+            },
+            {
+              "kana": "---",
+              "name": "---",
+              "order": 1
+            }
+          ]
+        },
+        {
+          "name": "",
+          "kana": "",
+          "children": [
+            {
+              "dojo": "尾久",
+              "entryFee": "○",
+              "grade": "2級",
+              "kana": "こうむら　くにお",
+              "massogi": "有級 成年男子 ミドル・ヘビー級（+64kg）",
+              "name": "幸村　究仁男",
+              "seq": 81,
+              "special": "",
+              "teamTul": "",
+              "tul": "成年男女 青・赤帯の部 （4級～1級）",
+              "order": 2
+            },
+            {
+              "dojo": "首都大",
+              "entryFee": "",
+              "grade": "2級",
+              "kana": "クマザワ　リョウタ",
+              "massogi": "有級 成年男子 ミドル・ヘビー級（+64kg）",
+              "name": "熊澤　良太",
+              "seq": 1,
+              "special": "",
+              "teamTul": "",
+              "tul": "成年男女 青・赤帯の部 （4級～1級）",
+              "order": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "",
+      "kana": "",
+      "children": [
+        {
+          "name": "",
+          "kana": "",
+          "children": [
+            {
+              "dojo": "川口",
+              "entryFee": "○",
+              "grade": "1級",
+              "kana": "いちむら　りゅうた",
+              "massogi": "有級 成年男子 ミドル・ヘビー級（+64kg）",
+              "name": "市村　龍太",
+              "seq": 69,
+              "special": "×",
+              "teamTul": "　",
+              "tul": "×",
+              "order": 4
+            },
+            {
+              "kana": "---",
+              "name": "---",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "name": "",
+          "kana": "",
+          "children": [
+            {
+              "dojo": "中野",
+              "entryFee": "○",
+              "grade": "6級",
+              "kana": "おがわ　しょうた",
+              "massogi": "有級 成年男子 ミドル・ヘビー級（+64kg）",
+              "name": "小川　将太",
+              "seq": 84,
+              "special": "",
+              "teamTul": "",
+              "tul": "成年男女 黄・緑帯の部（8級～5級）",
+              "order": 6
+            },
+            {
+              "dojo": "青砥",
+              "entryFee": "○",
+              "grade": "1級",
+              "kana": "はぶ　ひろし",
+              "massogi": "有級 成年男子 ミドル・ヘビー級（+64kg）",
+              "name": "土生　宏志",
+              "seq": 18,
+              "special": "×",
+              "teamTul": "",
+              "tul": "成年男女 青・赤帯の部 （4級～1級）",
+              "order": 7
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
