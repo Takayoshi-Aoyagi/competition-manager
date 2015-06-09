@@ -1,5 +1,7 @@
 package com.tkdksc;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -22,14 +24,16 @@ import java.util.regex.Pattern;
 import net.arnx.jsonic.JSON;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.tkdksc.core.AggregationGroup;
+import com.tkdksc.utils.ExcelUtils;
 
 public class TournamentExcelGeneratorMain {
-	
+
 	private XSSFWorkbook wb;
 
 	public void execute() throws IOException {
@@ -50,12 +54,12 @@ public class TournamentExcelGeneratorMain {
 		FileOutputStream fos = new FileOutputStream(new File("data/excel/tournament_list.xlsx"));
 		try {
 			this.wb = new XSSFWorkbook();
-			for (String key: tulMap.keySet()) {
-				XSSFSheet sheet = wb.createSheet(String.format("%s %s","トゥル", key));
+			for (String key : tulMap.keySet()) {
+				XSSFSheet sheet = wb.createSheet(String.format("%s %s", "トゥル", key));
 				writeSheet(sheet, tulMap.get(key));
 			}
-			for (String key: massogiMap.keySet()) {
-				XSSFSheet sheet = wb.createSheet(String.format("%s %s","マッソギ", key));
+			for (String key : massogiMap.keySet()) {
+				XSSFSheet sheet = wb.createSheet(String.format("%s %s", "マッソギ", key));
 				writeSheet(sheet, massogiMap.get(key));
 			}
 			wb.write(fos);
@@ -64,9 +68,10 @@ public class TournamentExcelGeneratorMain {
 		}
 	}
 
-	private void writeSheet(XSSFSheet sheet, List list) {
+	private void writeSheet(XSSFSheet sheet, List list) throws IOException {
 		int colno = 5;
 		int size = list.size();
+		ExcelUtils.copyEdge(wb, sheet, size);
 		for (int i = 0; i < size; i++) {
 			Map player = (Map) list.get(i);
 			String name = (String) player.get("name");
@@ -99,7 +104,7 @@ public class TournamentExcelGeneratorMain {
 			List<Map> players = getPlayersFromFile(String.format("data/json/tournament/%s/%s", type, file));
 			Map p0 = players.get(0);
 			String clazz = (String) p0.get(type);
-			map.put(clazz,  players);
+			map.put(clazz, players);
 		}
 		return map;
 	}
@@ -128,7 +133,7 @@ public class TournamentExcelGeneratorMain {
 
 	private List getPlayersFromFile(String path) throws IOException {
 		Map json = getJsonFromFile(path);
-//		System.out.println(json);
+		// System.out.println(json);
 		List playerList = new ArrayList();
 		List<Map> children = (List<Map>) json.get("children");
 		getChildren(children, playerList);
