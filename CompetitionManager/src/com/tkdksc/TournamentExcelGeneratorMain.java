@@ -5,12 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -35,7 +31,6 @@ public class TournamentExcelGeneratorMain {
 	private XSSFWorkbook wb;
 
 	public void execute() throws IOException {
-		// copyTemplate();
 		Map<String, List> tulMap = getMap(AggregationGroup.TUL);
 		Map<String, List> massogiMap = getMap(AggregationGroup.MASSOGI);
 		write2excel(tulMap, massogiMap);

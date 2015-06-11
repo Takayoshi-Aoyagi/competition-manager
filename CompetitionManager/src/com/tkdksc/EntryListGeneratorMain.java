@@ -24,7 +24,6 @@ public class EntryListGeneratorMain {
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		String inputDir = "input/dojo";
 		String mergeConfPath = "data/merge/merge.json";
-//		String separateConfPath = "data/merge/separate.json";
 		if (args.length > 0) {
 			inputDir = args[0];
 			mergeConfPath = args[1];
@@ -51,7 +50,7 @@ public class EntryListGeneratorMain {
 		
 
 		new File("data/excel").mkdirs();
-		new ExcelWriter(categoryMap, "data/excel").write2excel();
+		new ExcelWriter(playerList, categoryMap, "data/excel").write2excel();
 
 		new File("data/json/categories").mkdirs();
 		for (String categoryName : categoryMap.keySet()) {
