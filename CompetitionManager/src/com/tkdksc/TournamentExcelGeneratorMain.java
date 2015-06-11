@@ -1,7 +1,6 @@
 package com.tkdksc;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -24,7 +23,6 @@ import java.util.regex.Pattern;
 import net.arnx.jsonic.JSON;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -37,17 +35,10 @@ public class TournamentExcelGeneratorMain {
 	private XSSFWorkbook wb;
 
 	public void execute() throws IOException {
-		copyTemplate();
+		// copyTemplate();
 		Map<String, List> tulMap = getMap(AggregationGroup.TUL);
 		Map<String, List> massogiMap = getMap(AggregationGroup.MASSOGI);
 		write2excel(tulMap, massogiMap);
-	}
-
-	private void copyTemplate() throws IOException {
-		FileSystem fs = FileSystems.getDefault();
-		Path src = fs.getPath("data/excel/template.xlsx");
-		Path dst = fs.getPath("data/excel/tournament_list.xlsx");
-		Files.copy(src, dst, StandardCopyOption.COPY_ATTRIBUTES, StandardCopyOption.REPLACE_EXISTING);
 	}
 
 	private void write2excel(Map<String, List> tulMap, Map<String, List> massogiMap) throws IOException {
@@ -69,9 +60,19 @@ public class TournamentExcelGeneratorMain {
 	}
 
 	private void writeSheet(XSSFSheet sheet, List list) throws IOException {
-		int colno = 5;
 		int size = list.size();
+		int colno = 5;
+		if (size < 2) {
+			return;
+		}
+		//
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < 4; j++) {
+				sheet.createRow(i * 4 + j);
+			}
+		}
 		ExcelUtils.copyEdge(wb, sheet, size);
+
 		for (int i = 0; i < size; i++) {
 			Map player = (Map) list.get(i);
 			String name = (String) player.get("name");
@@ -87,12 +88,43 @@ public class TournamentExcelGeneratorMain {
 				str1 = String.format("%s %s (%s)", seq, name, dojo);
 				str2 = String.format("   %s", kana);
 			}
-			XSSFRow row1 = sheet.createRow(i * 4 + 1);
-			XSSFCell cell1 = row1.createCell(colno);
+			XSSFRow row1 = getRow(sheet, i * 4 + 1);
+			XSSFCell cell1 = getCell(colno, row1);
 			cell1.setCellValue(str1);
-			XSSFRow row2 = sheet.createRow(i * 4 + 2);
-			XSSFCell cell2 = row2.createCell(colno);
+			XSSFRow row2 = getRow(sheet, i * 4 + 2);
+			XSSFCell cell2 = getCell(colno, row2);
 			cell2.setCellValue(str2);
+		}
+		ExcelUtils.copyEdge(wb, sheet, size);
+	}
+
+	private XSSFCell getCell(int colno, XSSFRow row) {
+		XSSFCell cell = row.getCell(colno);
+		if (cell == null) {
+			cell = row.createCell(colno);
+		}
+		return cell;
+	}
+
+	private XSSFRow getRow(XSSFSheet sheet, int rowIndex) {
+		XSSFRow row = sheet.getRow(rowIndex);
+		if (row == null) {
+			row = sheet.createRow(rowIndex);
+		}
+		return row;
+	}
+
+	private int getColNo(int size) {
+		if (size == 16) {
+			return 5;
+		} else if (size == 8) {
+			return 4;
+		} else if (size == 4) {
+			return 3;
+		} else if (size == 2) {
+			return 2;
+		} else {
+			return 1;
 		}
 	}
 

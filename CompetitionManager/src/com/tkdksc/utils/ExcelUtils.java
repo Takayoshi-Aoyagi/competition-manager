@@ -20,25 +20,36 @@ public class ExcelUtils {
 			fis = new FileInputStream(new File("data/excel/template.xlsx"));
 			XSSFWorkbook template = new XSSFWorkbook(fis);
 			XSSFSheet tempSheet = template.getSheet(Integer.toString(size));
+			if (tempSheet == null) {
+				throw new AssertionError();
+			}
 			for (int i = 0; i < 100; i++) {
 				XSSFRow tempRow = tempSheet.getRow(i);
 				if (tempRow == null) {
 					continue;
 				}
-				XSSFRow row = sheet.createRow(i);
+				XSSFRow row = getRow(sheet, i);
 				for (int j = 0; j < 5; j++) {
 					XSSFCell tempCell = tempRow.getCell(j);
 					if (tempCell == null) {
 						continue;
 					}
 					XSSFCell cell = row.createCell(j);
-//					cell.setCellStyle(STYLE);
 					copyCellAttrs(wb, tempCell, cell);
 				}
 			}
 		} finally {
 			fis.close();
 		}
+	}
+
+
+	private static XSSFRow getRow(XSSFSheet sheet, int rownum) {
+		XSSFRow row = sheet.getRow(rownum);
+		if (row == null) {
+			row = sheet.createRow(rownum);
+		}
+		return row;
 	}
 
 
