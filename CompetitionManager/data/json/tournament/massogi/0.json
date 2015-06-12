@@ -15,30 +15,68 @@
               "kana": "",
               "children": [
                 {
-                  "dojo": "首都大",
-                  "entryFee": "",
-                  "grade": "10級",
-                  "kana": "シマダ　タクミ",
-                  "massogi": "×",
-                  "name": "嶋田　拓海",
-                  "seq": 5,
-                  "special": "",
-                  "teamTul": "",
-                  "tul": "成年男子・女子混合 白帯の部（9級～10級）",
-                  "order": 0
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "dojo": "柏田中",
+                      "entryFee": "○",
+                      "grade": "8級",
+                      "kana": "こいけ　しゅんすけ",
+                      "massogi": "×",
+                      "name": "小池　俊輔",
+                      "seq": 21,
+                      "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                      "teamTul": "",
+                      "tul": "小学 1～3年 黄帯の部 （8級～7級）",
+                      "order": 0
+                    },
+                    {
+                      "dojo": "柏田中",
+                      "entryFee": "○",
+                      "grade": "10級",
+                      "kana": "ささき　りんた",
+                      "massogi": "×",
+                      "name": "佐々木　凛太",
+                      "seq": 27,
+                      "special": "幼年の部（級位混合）テミョアプチャプシギ",
+                      "teamTul": "",
+                      "tul": "幼年 白帯の部",
+                      "order": 1
+                    }
+                  ]
                 },
                 {
-                  "dojo": "首都大",
-                  "entryFee": "",
-                  "grade": "10級",
-                  "kana": "オギ　ダイチ",
-                  "massogi": "×",
-                  "name": "小木　大知",
-                  "seq": 6,
-                  "special": "",
-                  "teamTul": "",
-                  "tul": "成年男子・女子混合 白帯の部（9級～10級）",
-                  "order": 1
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "dojo": "柏逆井",
+                      "entryFee": "○",
+                      "grade": "9級",
+                      "kana": "もとはし　こうた",
+                      "massogi": "×",
+                      "name": "本橋　宏太",
+                      "seq": 32,
+                      "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                      "teamTul": "",
+                      "tul": "小学 1～3年 白帯の部（9,10級）",
+                      "order": 2
+                    },
+                    {
+                      "dojo": "綾瀬",
+                      "entryFee": "○",
+                      "grade": "8級",
+                      "kana": "いしぐろ　ゆめ",
+                      "massogi": "×",
+                      "name": "石黒　結愛",
+                      "seq": 38,
+                      "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                      "teamTul": "",
+                      "tul": "小学 1～3年 黄帯の部 （8級～7級）",
+                      "order": 3
+                    }
+                  ]
                 }
               ]
             },
@@ -47,30 +85,68 @@
               "kana": "",
               "children": [
                 {
-                  "dojo": "首都大",
-                  "entryFee": "",
-                  "grade": "10級",
-                  "kana": "イノウ　エタイラ",
-                  "massogi": "×",
-                  "name": "井上　泰良",
-                  "seq": 7,
-                  "special": "",
-                  "teamTul": "",
-                  "tul": "成年男子・女子混合 白帯の部（9級～10級）",
-                  "order": 2
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "dojo": "JAC土浦",
+                      "entryFee": "",
+                      "grade": "10級",
+                      "kana": "キムチェユン",
+                      "massogi": "×",
+                      "name": "金チェユン",
+                      "seq": 48,
+                      "special": "",
+                      "teamTul": "",
+                      "tul": "小学 1～3年 白帯の部（9,10級）",
+                      "order": 4
+                    },
+                    {
+                      "dojo": "町屋",
+                      "entryFee": "○",
+                      "grade": "3級",
+                      "kana": "ゆむら　みちこ",
+                      "massogi": "×",
+                      "name": "湯村　光智子",
+                      "seq": 57,
+                      "special": "",
+                      "teamTul": "",
+                      "tul": "成年男女 青・赤帯の部 （4級～1級）",
+                      "order": 5
+                    }
+                  ]
                 },
                 {
-                  "dojo": "首都大",
-                  "entryFee": "",
-                  "grade": "10級",
-                  "kana": "フクモト　ショウヘイ",
-                  "massogi": "×",
-                  "name": "福元　翔平",
-                  "seq": 8,
-                  "special": "",
-                  "teamTul": "",
-                  "tul": "成年男子・女子混合 白帯の部（9級～10級）",
-                  "order": 3
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "dojo": "川口",
+                      "entryFee": "×",
+                      "grade": "8級",
+                      "kana": "こん　せな",
+                      "massogi": "×",
+                      "name": "今　世那",
+                      "seq": 65,
+                      "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                      "teamTul": "",
+                      "tul": "小学4～6年 黄帯の部 （8級～7級）",
+                      "order": 6
+                    },
+                    {
+                      "dojo": "川口",
+                      "entryFee": "○",
+                      "grade": "6級",
+                      "kana": "こいずみ　ひなた",
+                      "massogi": "×",
+                      "name": "小泉　陽",
+                      "seq": 67,
+                      "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                      "teamTul": "",
+                      "tul": "小学4～6年 緑帯の部（6級～５級）",
+                      "order": 7
+                    }
+                  ]
                 }
               ]
             }
@@ -85,30 +161,68 @@
               "kana": "",
               "children": [
                 {
-                  "dojo": "朝霞",
-                  "entryFee": "",
-                  "grade": "6級",
-                  "kana": "にしがみ　すすむ",
-                  "massogi": "×",
-                  "name": "西上　進",
-                  "seq": 9,
-                  "special": "×",
-                  "teamTul": "",
-                  "tul": "成年男女 黄・緑帯の部（8級～5級）",
-                  "order": 4
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "dojo": "川口",
+                      "entryFee": "○",
+                      "grade": "8級",
+                      "kana": "ふるげん　みなせ",
+                      "massogi": "×",
+                      "name": "古堅　南星",
+                      "seq": 74,
+                      "special": "幼年の部（級位混合）テミョアプチャプシギ",
+                      "teamTul": "",
+                      "tul": "幼年 黄緑帯の部",
+                      "order": 8
+                    },
+                    {
+                      "dojo": "川口",
+                      "entryFee": "×",
+                      "grade": "10級",
+                      "kana": "さの　てるよし",
+                      "massogi": "×",
+                      "name": "佐野　輝善",
+                      "seq": 75,
+                      "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                      "teamTul": "",
+                      "tul": "小学 1～3年 白帯の部（9,10級）",
+                      "order": 9
+                    }
+                  ]
                 },
                 {
-                  "dojo": "綾瀬",
-                  "entryFee": "○",
-                  "grade": "8級",
-                  "kana": "いしぐろ　ゆめ",
-                  "massogi": "×",
-                  "name": "石黒　結愛",
-                  "seq": 15,
-                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
-                  "teamTul": "",
-                  "tul": "小学 1～3年 黄帯の部 （8級～7級）",
-                  "order": 5
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "dojo": "川口",
+                      "entryFee": "×",
+                      "grade": "10級",
+                      "kana": "さの　あきよし",
+                      "massogi": "×",
+                      "name": "佐野　晃善",
+                      "seq": 76,
+                      "special": "幼年の部（級位混合）テミョアプチャプシギ",
+                      "teamTul": "",
+                      "tul": "幼年 白帯の部",
+                      "order": 10
+                    },
+                    {
+                      "dojo": "川口",
+                      "entryFee": "×",
+                      "grade": "10級",
+                      "kana": "よしだ　そうた",
+                      "massogi": "×",
+                      "name": "吉田 蒼大　",
+                      "seq": 77,
+                      "special": "（10級以上～級位混合）テミョアプチャプシギ",
+                      "teamTul": "",
+                      "tul": "小学 1～3年 白帯の部（9,10級）",
+                      "order": 11
+                    }
+                  ]
                 }
               ]
             },
@@ -117,30 +231,68 @@
               "kana": "",
               "children": [
                 {
-                  "dojo": "柏田中",
-                  "entryFee": "○",
-                  "grade": "8級",
-                  "kana": "こいけ　しゅんすけ",
-                  "massogi": "×",
-                  "name": "小池　俊輔",
-                  "seq": 45,
-                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
-                  "teamTul": "",
-                  "tul": "小学 1～3年 黄帯の部 （8級～7級）",
-                  "order": 6
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "dojo": "首都大",
+                      "entryFee": "",
+                      "grade": "10級",
+                      "kana": "シマダ　タクミ",
+                      "massogi": "×",
+                      "name": "嶋田　拓海",
+                      "seq": 82,
+                      "special": "",
+                      "teamTul": "",
+                      "tul": "成年男子・女子混合 白帯の部（9級～10級）",
+                      "order": 12
+                    },
+                    {
+                      "dojo": "首都大",
+                      "entryFee": "",
+                      "grade": "10級",
+                      "kana": "オギ　ダイチ",
+                      "massogi": "×",
+                      "name": "小木　大知",
+                      "seq": 83,
+                      "special": "",
+                      "teamTul": "",
+                      "tul": "成年男子・女子混合 白帯の部（9級～10級）",
+                      "order": 13
+                    }
+                  ]
                 },
                 {
-                  "dojo": "柏田中",
-                  "entryFee": "○",
-                  "grade": "10級",
-                  "kana": "ささき　りんた",
-                  "massogi": "×",
-                  "name": "佐々木　凛太",
-                  "seq": 51,
-                  "special": "幼年の部（級位混合）テミョアプチャプシギ",
-                  "teamTul": "",
-                  "tul": "幼年 白帯の部",
-                  "order": 7
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "dojo": "首都大",
+                      "entryFee": "",
+                      "grade": "10級",
+                      "kana": "イノウ　エタイラ",
+                      "massogi": "×",
+                      "name": "井上　泰良",
+                      "seq": 84,
+                      "special": "",
+                      "teamTul": "",
+                      "tul": "成年男子・女子混合 白帯の部（9級～10級）",
+                      "order": 14
+                    },
+                    {
+                      "dojo": "首都大",
+                      "entryFee": "",
+                      "grade": "10級",
+                      "kana": "フクモト　ショウヘイ",
+                      "massogi": "×",
+                      "name": "福元　翔平",
+                      "seq": 85,
+                      "special": "",
+                      "teamTul": "",
+                      "tul": "成年男子・女子混合 白帯の部（9級～10級）",
+                      "order": 15
+                    }
+                  ]
                 }
               ]
             }
@@ -161,30 +313,44 @@
               "kana": "",
               "children": [
                 {
-                  "dojo": "柏逆井",
-                  "entryFee": "○",
-                  "grade": "9級",
-                  "kana": "もとはし　こうた",
-                  "massogi": "×",
-                  "name": "本橋　宏太",
-                  "seq": 56,
-                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
-                  "teamTul": "",
-                  "tul": "小学 1～3年 白帯の部（9,10級）",
-                  "order": 8
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "dojo": "朝霞",
+                      "entryFee": "",
+                      "grade": "6級",
+                      "kana": "にしがみ　すすむ",
+                      "massogi": "×",
+                      "name": "西上　進",
+                      "seq": 86,
+                      "special": "×",
+                      "teamTul": "",
+                      "tul": "成年男女 黄・緑帯の部（8級～5級）",
+                      "order": 16
+                    },
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 17
+                    }
+                  ]
                 },
                 {
-                  "dojo": "JAC土浦",
-                  "entryFee": "",
-                  "grade": "10級",
-                  "kana": "キムチェユン",
-                  "massogi": "×",
-                  "name": "金チェユン",
-                  "seq": 60,
-                  "special": "",
-                  "teamTul": "",
-                  "tul": "小学 1～3年 白帯の部（9,10級）",
-                  "order": 9
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 18
+                    },
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 19
+                    }
+                  ]
                 }
               ]
             },
@@ -193,30 +359,36 @@
               "kana": "",
               "children": [
                 {
-                  "dojo": "川口",
-                  "entryFee": "×",
-                  "grade": "8級",
-                  "kana": "こん　せな",
-                  "massogi": "×",
-                  "name": "今　世那",
-                  "seq": 68,
-                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
-                  "teamTul": "",
-                  "tul": "小学4～6年 黄帯の部 （8級～7級）",
-                  "order": 10
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 20
+                    },
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 21
+                    }
+                  ]
                 },
                 {
-                  "dojo": "川口",
-                  "entryFee": "○",
-                  "grade": "6級",
-                  "kana": "こいずみ　ひなた",
-                  "massogi": "×",
-                  "name": "小泉　陽",
-                  "seq": 70,
-                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
-                  "teamTul": "",
-                  "tul": "小学4～6年 緑帯の部（6級～５級）",
-                  "order": 11
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 22
+                    },
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 23
+                    }
+                  ]
                 }
               ]
             }
@@ -231,30 +403,36 @@
               "kana": "",
               "children": [
                 {
-                  "dojo": "川口",
-                  "entryFee": "○",
-                  "grade": "8級",
-                  "kana": "ふるげん　みなせ",
-                  "massogi": "×",
-                  "name": "古堅　南星",
-                  "seq": 77,
-                  "special": "幼年の部（級位混合）テミョアプチャプシギ",
-                  "teamTul": "",
-                  "tul": "幼年 黄緑帯の部",
-                  "order": 12
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 24
+                    },
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 25
+                    }
+                  ]
                 },
                 {
-                  "dojo": "川口",
-                  "entryFee": "×",
-                  "grade": "10級",
-                  "kana": "さの　てるよし",
-                  "massogi": "×",
-                  "name": "佐野　輝善",
-                  "seq": 78,
-                  "special": "（10級以上～級位混合）テミョアプチャプシギ",
-                  "teamTul": "",
-                  "tul": "小学 1～3年 白帯の部（9,10級）",
-                  "order": 13
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 26
+                    },
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 27
+                    }
+                  ]
                 }
               ]
             },
@@ -263,30 +441,36 @@
               "kana": "",
               "children": [
                 {
-                  "dojo": "川口",
-                  "entryFee": "×",
-                  "grade": "10級",
-                  "kana": "さの　あきよし",
-                  "massogi": "×",
-                  "name": "佐野　晃善",
-                  "seq": 79,
-                  "special": "幼年の部（級位混合）テミョアプチャプシギ",
-                  "teamTul": "",
-                  "tul": "幼年 白帯の部",
-                  "order": 14
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 28
+                    },
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 29
+                    }
+                  ]
                 },
                 {
-                  "dojo": "町屋",
-                  "entryFee": "○",
-                  "grade": "3級",
-                  "kana": "ゆむら　みちこ",
-                  "massogi": "×",
-                  "name": "湯村　光智子",
-                  "seq": 82,
-                  "special": "",
-                  "teamTul": "",
-                  "tul": "成年男女 青・赤帯の部 （4級～1級）",
-                  "order": 15
+                  "name": "",
+                  "kana": "",
+                  "children": [
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 30
+                    },
+                    {
+                      "kana": "---",
+                      "name": "---",
+                      "order": 31
+                    }
+                  ]
                 }
               ]
             }

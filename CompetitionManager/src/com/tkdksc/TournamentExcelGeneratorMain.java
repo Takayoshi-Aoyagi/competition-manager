@@ -56,7 +56,7 @@ public class TournamentExcelGeneratorMain {
 
 	private void writeSheet(XSSFSheet sheet, List list) throws IOException {
 		int size = list.size();
-		int colno = 5;
+		int colno = 6;
 		if (size < 2) {
 			return;
 		}
@@ -83,14 +83,29 @@ public class TournamentExcelGeneratorMain {
 				str1 = String.format("%s %s (%s)", seq, name, dojo);
 				str2 = String.format("   %s", kana);
 			}
+			XSSFRow row0 = getRow(sheet, i * 4);
+			row0.setHeightInPoints((float) 4); 
 			XSSFRow row1 = getRow(sheet, i * 4 + 1);
 			XSSFCell cell1 = getCell(colno, row1);
 			cell1.setCellValue(str1);
 			XSSFRow row2 = getRow(sheet, i * 4 + 2);
 			XSSFCell cell2 = getCell(colno, row2);
 			cell2.setCellValue(str2);
+			XSSFRow row3 = getRow(sheet, i * 4 + 3);
+			row3.setHeightInPoints((float) 4); 
 		}
 		ExcelUtils.copyEdge(wb, sheet, size);
+		
+//		for (int i = 0; i < 32; i++) {
+//			int[] indexes = {i * 4, i * 4 + 3}; 
+//			for (int rowIndex: indexes) {
+//				XSSFRow row = sheet.getRow(i);
+//				if (row == null) {
+//					continue;
+//				}
+//				row.setHeight((short) 2);
+//			}
+//		}
 	}
 
 	private XSSFCell getCell(int colno, XSSFRow row) {

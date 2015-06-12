@@ -21,7 +21,7 @@ public class ExcelUtils {
 			XSSFWorkbook template = new XSSFWorkbook(fis);
 			XSSFSheet tempSheet = template.getSheet(Integer.toString(size));
 			if (tempSheet == null) {
-				throw new AssertionError();
+				throw new AssertionError(size);
 			}
 			for (int i = 0; i < 100; i++) {
 				XSSFRow tempRow = tempSheet.getRow(i);
@@ -29,7 +29,7 @@ public class ExcelUtils {
 					continue;
 				}
 				XSSFRow row = getRow(sheet, i);
-				for (int j = 0; j < 5; j++) {
+				for (int j = 0; j < 6; j++) {
 					XSSFCell tempCell = tempRow.getCell(j);
 					if (tempCell == null) {
 						continue;
