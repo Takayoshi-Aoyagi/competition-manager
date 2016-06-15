@@ -3,6 +3,7 @@ package com.tkdksc.io.excel.writer.aggregate;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.ss.usermodel.BorderStyle;
@@ -12,6 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.tkdksc.core.Category;
+import com.tkdksc.core.Player;
 
 public class ExcelWriter {
 
@@ -19,8 +21,10 @@ public class ExcelWriter {
 	private XSSFCellStyle normalStyle;
 	private String outputDir;
 	private Map<String, Category> categoryMap;
+	private List<Player> playerList;
 	
-	public ExcelWriter(Map<String, Category> categoryMap, String outputDir) {
+	public ExcelWriter(List<Player> playerList, Map<String, Category> categoryMap, String outputDir) {
+		this.playerList = playerList;
 		this.categoryMap = categoryMap;
 		this.outputDir = outputDir;
 	}
@@ -30,6 +34,7 @@ public class ExcelWriter {
 		try {
 			XSSFWorkbook wb = new XSSFWorkbook();
 			initStyles(wb);
+			new AllPlayerSheetWriter(wb, "全体", normalStyle, titleStyle, playerList).write();
 			for (String key : categoryMap.keySet()) {
 				Category category = categoryMap.get(key);
 				new AggregationSheetWriter(wb, key, category, normalStyle, titleStyle).write();

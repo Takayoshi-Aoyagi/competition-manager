@@ -10,11 +10,11 @@ import com.tkdksc.core.Player;
 
 public class PlayerUtils {
 
-	public static Category toMap(AggregationGroup massogi, List<Player> players)
+	public static Category toMap(AggregationGroup group, List<Player> players)
 			throws NoSuchMethodException, SecurityException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException {
-		Method method = Player.class.getMethod("get" + massogi.getMethodName(), null);
-		Category category = new Category(massogi);
+		Method method = Player.class.getMethod("get" + group.getMethodName(), null);
+		Category category = new Category(group);
 		for (Player player : players) {
 			String key = (String) method.invoke(player, null);
 			category.addPlayer(key, player);

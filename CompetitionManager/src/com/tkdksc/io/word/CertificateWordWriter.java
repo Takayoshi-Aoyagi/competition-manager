@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -80,7 +82,9 @@ public class CertificateWordWriter {
 	}
 
 	private XWPFDocument readTemplate() throws IOException, InvalidFormatException {
-		XWPFDocument doc = new XWPFDocument(OPCPackage.open("template/certificate_template.docx"));
+		int year = Calendar.getInstance().get(Calendar.YEAR);
+		String filename = String.format("template/certificate_template_%d.docx", year);
+		XWPFDocument doc = new XWPFDocument(OPCPackage.open(filename));
 		return doc;
 	}
 }

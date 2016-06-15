@@ -1,0 +1,62 @@
+{
+  "name": "",
+  "kana": "",
+  "children": [
+    {
+      "name": "",
+      "kana": "",
+      "children": [
+        {
+          "dojo": "朴武館",
+          "entryFee": "○",
+          "grade": "2級",
+          "kana": "みやもと　せいか",
+          "massogi": "中学女子 ライト・ミドル級",
+          "name": "宮本　聖華",
+          "seq": 55,
+          "special": "",
+          "teamTul": "",
+          "tul": "中学 青・赤帯の部 （4級～1級）",
+          "order": 0
+        },
+        {
+          "dojo": "JAC守谷",
+          "entryFee": "",
+          "grade": "1級",
+          "kana": "なかじまほのか",
+          "massogi": "中学女子 ライト・ミドル級",
+          "name": "中島穂香",
+          "seq": 50,
+          "special": "",
+          "teamTul": "",
+          "tul": "中学 青・赤帯の部 （4級～1級）",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "name": "",
+      "kana": "",
+      "children": [
+        {
+          "dojo": "川口",
+          "entryFee": "○",
+          "grade": "1級",
+          "kana": "ふくなが　つばめ",
+          "massogi": "中学女子 ライト・ミドル級",
+          "name": "福永　つばめ",
+          "seq": 64,
+          "special": "×",
+          "teamTul": "",
+          "tul": "中学 青・赤帯の部 （4級～1級）",
+          "order": 2
+        },
+        {
+          "kana": "---",
+          "name": "---",
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
