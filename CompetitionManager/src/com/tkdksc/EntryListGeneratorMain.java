@@ -16,6 +16,7 @@ import com.tkdksc.io.excel.reader.entry.DojoEntryExcelReader;
 import com.tkdksc.io.excel.writer.aggregate.ExcelWriter;
 import com.tkdksc.utils.PlayerUtils;
 import com.tkdksc.utils.Separator;
+import com.tkdksc.utils.SequenceNumberAppender;
 
 public class EntryListGeneratorMain {
 
@@ -43,7 +44,7 @@ public class EntryListGeneratorMain {
 			categoryMap.put(categorized.getName(), categorized);
 		}
 		//
-		appendSeqNo(categoryMap);
+		SequenceNumberAppender.execute(categoryMap);
 		//
 		dbg(categoryMap);
 
@@ -64,19 +65,6 @@ public class EntryListGeneratorMain {
 				bw.close();
 			}
 		}
-	}
-
-	private static void appendSeqNo(Map<String, Category> categoryMap) {
-		Category category = categoryMap.get("道場");
-		TreeMap<String, List<Player>> map = category.getMap();
-		System.out.println(map.keySet());
-		map.forEach((dojo, players) -> {
-			System.out.println(dojo);
-			players.forEach(player -> {
-				player.setSeq(seq);
-				seq++;
-			}); 
-		});
 	}
 
 	private static void dbg(Map<String, Category> categoryMap) {
