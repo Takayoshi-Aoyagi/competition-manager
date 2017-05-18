@@ -1,6 +1,7 @@
 package com.tkdksc.core;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,18 +12,34 @@ import net.arnx.jsonic.JSON;
 public class Category {
 
 	private AggregationGroup group;
-	private Map<String, List<Player>> map;
+	private TreeMap<String, List<Player>> map;
 
 	public Category(AggregationGroup group) {
 		this.group = group;
-		this.map = new TreeMap<String, List<Player>>();
+		if (group == AggregationGroup.DOJO) {
+			this.map = new TreeMap<String, List<Player>>(new Comparator<String>() {
+				@Override
+				public int compare(String o1, String o2) {
+					String kw = "川口";
+					if (o1.equals(kw) && o2.equals(kw)) {
+						return 0;
+					}
+					if (o1.indexOf(kw) >= 0) {
+						return -1;
+					}
+					return o1.compareTo(o2);
+				}
+			});
+		} else {
+			this.map = new TreeMap<String, List<Player>>();
+		}
 	}
 
 	public String getName() {
 		return group.getKana();
 	}
 
-	public Map<String, List<Player>> getMap() {
+	public TreeMap<String, List<Player>> getMap() {
 		return map;
 	}
 

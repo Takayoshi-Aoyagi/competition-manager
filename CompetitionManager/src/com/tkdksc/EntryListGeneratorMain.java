@@ -14,12 +14,13 @@ import com.tkdksc.core.Category;
 import com.tkdksc.core.Player;
 import com.tkdksc.io.excel.reader.entry.DojoEntryExcelReader;
 import com.tkdksc.io.excel.writer.aggregate.ExcelWriter;
-import com.tkdksc.utils.Merger;
 import com.tkdksc.utils.PlayerUtils;
 import com.tkdksc.utils.Separator;
 
 public class EntryListGeneratorMain {
 
+	private static int seq = 1;
+	
 	public static void main(String[] args) throws IOException, NoSuchMethodException, SecurityException,
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		String inputDir = "input/dojo";
@@ -27,7 +28,7 @@ public class EntryListGeneratorMain {
 		if (args.length > 0) {
 			inputDir = args[0];
 			mergeConfPath = args[1];
-//			separateConfPath = args[2];
+			// separateConfPath = args[2];
 		}
 		DojoEntryExcelReader er = new DojoEntryExcelReader(inputDir);
 		List<Player> playerList = er.readFiles();
@@ -35,19 +36,19 @@ public class EntryListGeneratorMain {
 		// separator
 		Separator separator = new Separator();
 		separator.separate(playerList);
-		
-		
+
 		Map<String, Category> categoryMap = new TreeMap<String, Category>();
 		for (AggregationGroup group : AggregationGroup.values()) {
 			Category categorized = PlayerUtils.toMap(group, playerList);
 			categoryMap.put(categorized.getName(), categorized);
 		}
 		//
+		appendSeqNo(categoryMap);
+		//
 		dbg(categoryMap);
 
-		Merger merger = new Merger(mergeConfPath);
-		merger.merge(categoryMap);
-		
+		// Merger merger = new Merger(mergeConfPath);
+		// merger.merge(categoryMap);
 
 		new File("data/excel").mkdirs();
 		new ExcelWriter(playerList, categoryMap, "data/excel").write2excel();
@@ -63,6 +64,19 @@ public class EntryListGeneratorMain {
 				bw.close();
 			}
 		}
+	}
+
+	private static void appendSeqNo(Map<String, Category> categoryMap) {
+		Category category = categoryMap.get("道場");
+		TreeMap<String, List<Player>> map = category.getMap();
+		System.out.println(map.keySet());
+		map.forEach((dojo, players) -> {
+			System.out.println(dojo);
+			players.forEach(player -> {
+				player.setSeq(seq);
+				seq++;
+			}); 
+		});
 	}
 
 	private static void dbg(Map<String, Category> categoryMap) {

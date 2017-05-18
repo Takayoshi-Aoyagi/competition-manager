@@ -15,7 +15,7 @@ public class Player {
 	private int seq;
 
 	public Player(String name, String grade, String dojo, String tul, String massogi, String special,
-			String teamTul, String kana, String entryFee, int seq) {
+			String teamTul, String kana, String entryFee) {
 		super();
 		this.name = name;
 		this.grade = grade;
@@ -26,16 +26,14 @@ public class Player {
 		this.teamTul = teamTul;
 		this.kana = kana;
 		this.entryFee = entryFee;
-		this.seq = seq;
 	}
 
 	@Override
 	public String toString() {
 		return "Player [name=" + name + ", grade=" + grade + ", dojo=" + dojo + ", tul=" + tul + ", massogi="
-				+ massogi + ", special=" + special + ", teamTul=" + teamTul + ", kana=" + kana
-				+ ", entryFee=" + entryFee + ", seq=" + seq + "]";
+				+ massogi + ", special=" + special + ", teamTul=" + teamTul + ", kana=" + kana + ", entryFee="
+				+ entryFee + ", seq=" + seq + "]";
 	}
-
 
 	public String getName() {
 		return name;
@@ -111,5 +109,9 @@ public class Player {
 
 	public int getSeq() {
 		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
 	}
 }
