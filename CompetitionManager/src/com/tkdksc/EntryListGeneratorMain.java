@@ -14,6 +14,7 @@ import com.tkdksc.core.Category;
 import com.tkdksc.core.Player;
 import com.tkdksc.io.excel.reader.entry.DojoEntryExcelReader;
 import com.tkdksc.io.excel.writer.aggregate.ExcelWriter;
+import com.tkdksc.utils.Merger;
 import com.tkdksc.utils.PlayerUtils;
 import com.tkdksc.utils.Separator;
 import com.tkdksc.utils.SequenceNumberAppender;
@@ -48,8 +49,8 @@ public class EntryListGeneratorMain {
 		//
 		dbg(categoryMap);
 
-		// Merger merger = new Merger(mergeConfPath);
-		// merger.merge(categoryMap);
+		 Merger merger = new Merger(mergeConfPath);
+		 merger.merge(categoryMap);
 
 		new File("data/excel").mkdirs();
 		new ExcelWriter(playerList, categoryMap, "data/excel").write2excel();

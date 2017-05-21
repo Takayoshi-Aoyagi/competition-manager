@@ -24,6 +24,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.tkdksc.core.AggregationGroup;
+import com.tkdksc.core.Player;
 import com.tkdksc.utils.ExcelUtils;
 
 public class TournamentExcelGeneratorMain {
@@ -60,13 +61,14 @@ public class TournamentExcelGeneratorMain {
 		if (size < 2) {
 			return;
 		}
+		int graphSize = getGraphSize(size);
 		//
-		for (int i = 0; i < size; i++) {
+		for (int i = 0; i < graphSize; i++) {
 			for (int j = 0; j < 4; j++) {
 				sheet.createRow(i * 4 + j);
 			}
 		}
-		ExcelUtils.copyEdge(wb, sheet, size);
+		ExcelUtils.copyEdge(wb, sheet, graphSize);
 
 		for (int i = 0; i < size; i++) {
 			Map player = (Map) list.get(i);
@@ -83,29 +85,58 @@ public class TournamentExcelGeneratorMain {
 				str1 = String.format("%s %s (%s)", seq, name, dojo);
 				str2 = String.format("   %s", kana);
 			}
-			XSSFRow row0 = getRow(sheet, i * 4);
-			row0.setHeightInPoints((float) 4); 
+
+//			XSSFRow row0 = getRow(sheet, i * 4);
+//			row0.setHeightInPoints((float) 4);
 			XSSFRow row1 = getRow(sheet, i * 4 + 1);
 			XSSFCell cell1 = getCell(colno, row1);
 			cell1.setCellValue(str1);
 			XSSFRow row2 = getRow(sheet, i * 4 + 2);
 			XSSFCell cell2 = getCell(colno, row2);
 			cell2.setCellValue(str2);
-			XSSFRow row3 = getRow(sheet, i * 4 + 3);
-			row3.setHeightInPoints((float) 4); 
+//			XSSFRow row3 = getRow(sheet, i * 4 + 3);
+//			row3.setHeightInPoints((float) 4);
 		}
-		ExcelUtils.copyEdge(wb, sheet, size);
-		
-//		for (int i = 0; i < 32; i++) {
-//			int[] indexes = {i * 4, i * 4 + 3}; 
-//			for (int rowIndex: indexes) {
-//				XSSFRow row = sheet.getRow(i);
-//				if (row == null) {
-//					continue;
-//				}
-//				row.setHeight((short) 2);
-//			}
-//		}
+
+		for (int i = 0; i < graphSize; i++) {
+			XSSFRow row0 = getRow(sheet, i * 4);
+			row0.setHeightInPoints((float) 4);
+			XSSFRow row1 = getRow(sheet, i * 4 + 1);
+			XSSFCell cell1 = getCell(colno, row1);
+			XSSFRow row2 = getRow(sheet, i * 4 + 2);
+			XSSFCell cell2 = getCell(colno, row2);
+			XSSFRow row3 = getRow(sheet, i * 4 + 3);
+			row3.setHeightInPoints((float) 4);
+		}
+
+		// ExcelUtils.copyEdge(wb, sheet, graphSize);
+
+		// for (int i = 0; i < 32; i++) {
+		// int[] indexes = {i * 4, i * 4 + 3};
+		// for (int rowIndex: indexes) {
+		// XSSFRow row = sheet.getRow(i);
+		// if (row == null) {
+		// continue;
+		// }
+		// row.setHeight((short) 2);
+		// }
+		// }
+	}
+
+	private int getGraphSize(int size) {
+		if (size <= 2) {
+			return 2;
+		} else if (size <= 4) {
+			return 4;
+		} else if (size <= 8) {
+			return 8;
+		} else if (size <= 16) {
+			return 16;
+		} else if (size <= 32) {
+			return 32;
+		} else {
+			throw new AssertionError(size);
+		}
 	}
 
 	private XSSFCell getCell(int colno, XSSFRow row) {
@@ -139,6 +170,24 @@ public class TournamentExcelGeneratorMain {
 	}
 
 	private Map<String, List> getMap(AggregationGroup group) throws IOException {
+		TreeMap<String, List> map = new TreeMap<>();
+		String jsonPath = String.format("data/json/categories/%s.json", group.getKana());
+		Map json = getJsonFromFile(jsonPath);
+		Map<String, List> clazzMap = (Map<String, List>) json.get("data");
+		for (String clazz : clazzMap.keySet()) {
+			if ("".equals(clazz) || "×".equals(clazz)) {
+				continue;
+			}
+			List players = clazzMap.get(clazz);
+			if (players.size() < 2) {
+				continue;
+			}
+			map.put(clazz, players);
+		}
+		return map;
+	}
+
+	private Map<String, List> _getMap(AggregationGroup group) throws IOException {
 		String type = group.name().toLowerCase();
 		Map<String, List> map = new TreeMap<String, List>();
 		String[] files = getFiles(type);
